@@ -33,7 +33,7 @@ npm-debug.log*
 next-env.d.ts
 
 # VS Code
-# .vscode/
+!.vscode/
 # *.code-workspace
 .history/
 
