@@ -83,7 +83,7 @@ export const TintSimulator = ({ className }: { className?: string }) => {
       {/* Tint Percentage Display */}
       <p className="h4-display text-foreground mt-5 uppercase">{sliderValue}% Tint</p>
       {/* Slider Control with Labels */}
-      <div className="flex w-full min-w-80 items-center gap-2.5 sm:w-2/3">
+      <div className="flex w-full min-w-80 max-sm:max-w-40 items-center gap-2.5 sm:w-2/3">
         <span className="md:text-md w-20 text-sm font-medium">5% Tint (Darkest)</span>
         <input
           title="Tint Simulator"
