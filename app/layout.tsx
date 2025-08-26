@@ -41,6 +41,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <BottomBlurOverlay />
             <TopBarV2 />
             {children}
+
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
