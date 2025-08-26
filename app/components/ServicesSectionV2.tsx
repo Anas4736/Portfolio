@@ -77,9 +77,9 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
   return (
     <section id="technologies" className={clsx("inside-container items-start justify-center bg-white md:flex-row md:items-center", className)}>
       {/*  LEFT COLUMN  */}
-      <div className="flex [flex:1.5_0_0px] flex-col gap-16">
+      <div className="flex [flex:2_0_0px] flex-col gap-16">
         <AnimatedH2>
-          My Engineering <br />
+          Engineering <br />
           <span className="text-slate-500">Toolkit</span>
         </AnimatedH2>
 

@@ -4,6 +4,8 @@ import clsx from "clsx"
 import type { Variants } from "motion"
 import { MotionButton, MotionDiv } from "@/app/utils/lazy-ui"
 import { Github } from "@react-zero-ui/icon-sprite"
+import { SITE_NAP } from "@/config/siteConfig"
+import { Icon } from "../Icon"
 
 export const CallToActionButton = () => {
   const buttonVariants: Variants = {
@@ -59,30 +61,32 @@ export const CallToActionButton = () => {
   }
 
   return (
-    <MotionButton
-      initial="initial"
-      animate="animate"
-      whileHover="hover"
-      variants={buttonVariants}
-      className="group bubble-hover active inline-flex w-max items-center gap-2 rounded-full bg-black px-3 py-2.5 text-base font-medium tracking-tight text-white shadow-xl shadow-black/20"
-    >
-      <div className="relative flex items-center gap-1">
-        {/* Avatar */}
-        <div className="relative h-7 w-7 rounded-full">
-          <Image src={profilePhoto} alt="Profile photo of the founder" fill sizes="50px" className="rounded-full object-cover ring-2 ring-white/75" />
-        </div>
+    <a href={SITE_NAP.profiles.github} target="_blank" rel="noopener" aria-label="Austin Serb's GitHub">
+      <MotionButton
+        initial="initial"
+        animate="animate"
+        whileHover="hover"
+        variants={buttonVariants}
+        className="group bubble-hover active inline-flex w-max items-center gap-2 rounded-full bg-black px-3 py-2.5 text-base font-medium tracking-tight text-white shadow-xl shadow-black/20"
+      >
+        <div className="relative flex items-center gap-1">
+          {/* Avatar */}
+          <div className="relative h-7 w-7 rounded-full">
+            <Image src={profilePhoto} alt="Profile photo of the founder" fill sizes="50px" className="rounded-full object-cover ring-2 ring-white/75" />
+          </div>
 
-        {/* + You entrance */}
-        <MotionDiv variants={youVariants} className={clsx("hidden items-center gap-1 md:flex")}>
-          <span className="text-xl">+</span>
-          <Github
-            size={28}
-            className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-sm font-semibold text-black ring-1 ring-black/50 p-1"
-          />
-        </MotionDiv>
-      </div>
-      See My Github
-    </MotionButton>
+          {/* + You entrance */}
+          <MotionDiv variants={youVariants} className={clsx("hidden items-center gap-1 md:flex")}>
+            <span className="text-xl">+</span>
+            <Icon
+              name="github"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black text-sm font-semibold  ring-1 ring-black/50"
+            />
+          </MotionDiv>
+        </div>
+        See My Github
+      </MotionButton>
+    </a>
   )
 }
 

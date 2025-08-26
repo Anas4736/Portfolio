@@ -25,10 +25,12 @@ export const SITE_NAP = {
   googleReviewLink: "https://g.page/r/CXHVs1ony_76EAI/review",
   profiles: {
     facebook: "https://www.facebook.com/serbytedevelopment/",
-    linkedIn: "https://www.linkedin.com/company/serbyte-development/",
+    linkedIn: "https://www.linkedin.com/in/austin-serb/",
     yelp: "https://www.yelp.com/biz/serbyte-development-kirkland-3",
     pinterest: "https://www.pinterest.com/serbytedevelopment",
     gbp: "https://g.co/kgs/ay2r1wp",
+    github: "https://github.com/austin1serb",
+    x: "https://x.com/AustinSerb",
   } as const,
   logo: "/serbyte-logo.png",
   favicon: "/favicon.ico",
@@ -39,10 +41,18 @@ export const SITE_SLUGS = {
   home: "/",
   projects: "/projects",
   contact: "/contact",
-  projectsZero: "/projects/react-zero-ui",
-  projectsIao: "/projects/iron-and-oak",
-  projectsAutomedics: "/projects/automedics",
-  projectsBespoke: "/projects/bespoke",
+  projectLinks: {
+    iao: "/projects/iron-and-oak",
+    automedics: "/projects/automedics",
+    bespoke: "/projects/bespoke",
+  },
+} as const
+
+export const externalLinks = {
+  vetsChoice: "https://vetschoiceinsurance.com/",
+  zeroIconSprite: "https://github.com/react-zero-ui/icon-sprite",
+  zeroCore: "https://github.com/react-zero-ui/core",
+  entitled: "https://be-entitled.com/",
 } as const
 
 const flattenSlugs = (obj: Record<string, string | Record<string, string>>): string[] => {

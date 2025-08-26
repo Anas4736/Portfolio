@@ -1,3 +1,4 @@
+import { Link } from "@/app/utils/Link"
 import { ActivityDot } from "./ui/ActivityDot"
 import { AnimatedElement } from "./ui/AnimatedElement"
 import { CallToActionButton } from "./ui/CallToActionButton"
@@ -12,25 +13,29 @@ export const HeroV2 = () => {
             delay={0.6}
             className="inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg"
           >
-            <ActivityDot /> Open to new opportunities
+            <ActivityDot /> Open to audacious work
           </AnimatedElement>
 
           <h1 className="xs:text-5xl relative z-5 text-4xl leading-[1] font-medium tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
             <AnimatedElement element="span" offsetPx={20} fadeDirection="left" className="inline-block">
-              Performance
+              Austin Serb
             </AnimatedElement>{" "}
             <br />
-            <AnimatedElement element="span" offsetPx={40} delay={0.2} fadeDirection="top" className="inline-block">
-              that{" "}
-            </AnimatedElement>
+            <AnimatedElement element="span" offsetPx={40} delay={0.2} fadeDirection="top" className="inline-block"></AnimatedElement>
             <AnimatedElement element="span" delay={0.4} offsetPx={20} fadeDirection="left" className="inline-block text-slate-700">
-              &nbsp;Delivers.
+              Portfolio
             </AnimatedElement>
           </h1>
 
           <AnimatedElement element="p" delay={0.6} className="max-w-xs text-sm leading-tight tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base">
-            <strong className="font-semibold text-slate-900">Frontend-focused Full Stack Developer.</strong> React & Next.js specialist delivering 10x faster
-            UIs and scalable systems.
+            <strong className="font-semibold text-slate-900">Frontend-focused full stack developer.</strong> React & Next.js specialist. Creator of{" "}
+            <a href="https://github.com/react-zero-ui" target="_blank" rel="noopener" className="font-semibold text-slate-900">
+              React-Zero-UI
+            </a>
+            . Founder of{" "}
+            <a href="https://www.serbyte.net/" target="_blank" rel="noopener" className="font-semibold text-slate-900">
+              Serbyte Development
+            </a>
           </AnimatedElement>
 
           <CallToActionButton />

@@ -6,7 +6,6 @@ import { MobileMenu } from "./MobileMenu"
 const navItems = [
   { name: "Projects", href: "/projects" },
   { name: "About", href: "/#about" },
-  { name: "Technologies", href: "/#technologies" },
 ]
 
 export const TopBarV2: React.FC = () => {

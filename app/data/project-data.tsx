@@ -208,8 +208,8 @@ export const automedicsKirkland: ProjectData = {
     client: "Automedics Kirkland",
     year: "2025",
     description:
-      "Serbyte replaced AutoMedics' dated brochure site with a conversion-focused, SEO-engineered platform that now channels local search traffic into booked service slots while showcasing 1,000-plus ★★★★★ reviews.",
-    categories: ["Branding", "Web Design", "Local SEO", "Copywriting"],
+      "I replaced AutoMedics' dated brochure site with a conversion-focused, SEO-engineered platform that now channels local search traffic into booked service slots while showcasing 1,000-plus ★★★★★ reviews.",
+    categories: ["Next.js", "Web Design", "Local SEO", "Copywriting"],
     link: "https://www.automedicskirkland.com",
   },
   beforeAfter: {
@@ -315,8 +315,8 @@ export const iao: ProjectData = {
     client: "Iron & Oak Seattle",
     year: "2024",
     description:
-      "We dug deep into the story of Iron & Oak Seattle, a Seattle-based private security company that was born in the craziness that was Covid-19. We created a brand new website that tells the story of the company and its history and scrapped the internet for media coverage articles and mentions, the goal was to increase online applicants, and it worked.",
-    categories: ["Branding", "Web Design", "Web Development", "Storytelling"],
+      "I dug deep into the story of Iron & Oak Seattle, a Seattle-based private security company that was born in the craziness that was Covid-19. I created a brand new website that tells the story of the company and its history and scrapped the internet for media coverage articles and mentions, the goal was to increase online applicants, and it worked.",
+    categories: ["Next.js", "Web Design", "Web Development", "Storytelling"],
     link: "https://iao-seattle.vercel.app/?src=serbyte",
   },
   beforeAfter: {

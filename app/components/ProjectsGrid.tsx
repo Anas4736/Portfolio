@@ -10,6 +10,7 @@ import { useIsMobile } from "../hooks/useMediaQuery"
 import { useRef, useEffect } from "react"
 import { useScroll, useSpring } from "motion/react"
 import { useUI } from "@react-zero-ui/core"
+import { externalLinks } from "@/config/siteConfig"
 
 const ids = ["automedics", "react-zero-ui", "iron-and-oak", "bespoke"]
 
@@ -80,7 +81,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
           color="#3B06D1"
           type="Zero Re-Render State Library"
           progress={progress}
-          href="https://github.com/react-zero-ui"
+          href={externalLinks.zeroCore}
           dataText="View on GitHub"
         />
         <AnimatedCard

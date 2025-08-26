@@ -13,9 +13,9 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
       <div className="inside-container">
         {/* HEADLINE */}
         <AnimatedH2>
-          <span className="text-slate-500">Building performant</span>
+          <span className="text-slate-500">About</span>
           <br />
-          interfaces at scale.
+          Austin Serb
         </AnimatedH2>
         <div className="flex flex-col-reverse gap-12 md:flex-row md:gap-16">
           {/* ---------------- left column ---------------- */}
@@ -31,26 +31,30 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
               whileInView={{ opacity: 1, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
             >
-              <Text size="lg" className="font-medium">
+              <Text as="h2" size="lg" className="font-medium">
                 Austin Serb
               </Text>
-              <p className="text-sm text-gray-500">Full Stack Developer</p>
+              <p className="text-sm text-gray-500">Full-Stack Engineer (Next.js + TypeScript)</p>
             </MotionDiv>
           </div>
           {/* ---------------- right column ---------------- */}
           <Typography as="article" size="lg" className="[flex:1.5_0_0px] space-y-8 text-slate-500">
             <p>
-              <strong className="font-semibold text-slate-900">I'm passionate about pushing React performance boundaries.</strong>
+              <strong className="font-semibold text-slate-900">I build production systems and invent tools</strong> when the platform gets in the way. I created
+              <a href="https://github.com/react-zero-ui" target="_blank" rel="noopener">
+                {" "}
+                React Zero UI
+              </a>
+              . A ~350B micro-library that updates UI by flipping data-* attributes, eliminating React re-renders for UI state. This site runs on it.
+            </p>
+
+            <p>
+              <strong className="font-semibold text-slate-900">I ship v1s in weeks and iterate in days</strong>. Leveraging tools server-first React, typed
+              APIs, background jobs, CI/CD, and observability. Small PRs, rapid feedback, no ceremony.
             </p>
             <p>
-              <strong className="font-semibold text-slate-900">I focus on building user interfaces that truly solve problems</strong> - not just visually
-              polished, but performant, accessible, and intuitive. Whether it&apos;s a web app or a mobile experience, my goal is to create products that feel
-              natural to use and deliver measurable impact.
-            </p>
-            <p>
-              <strong className="font-semibold text-slate-900">I&apos;m meticulous about the small details,</strong> because they&apos;re what turn a good
-              product into a great one. That same attention to detail carries over into how I collaborate with teams, from design systems to code reviews -
-              ensuring the end result is reliable, scalable, and something we&apos;re proud to ship.
+              <strong className="font-semibold text-slate-900">My core philosophy is ruthless simplicity</strong>. if complexity balloons, I delete it and
+              design the simpler path.
             </p>
 
             {/* signature */}

@@ -2,7 +2,6 @@ import Image from "next/image"
 import { H3, Text } from "@/app/ui/Elements"
 import { MotionDiv } from "@/app/utils/lazy-ui"
 import { Icon } from "./Icon"
-import { ActivityDot } from "./ui/ActivityDot"
 import profilePhoto from "@/app/images/profile.webp"
 import { SITE_NAP } from "@/config/siteConfig"
 import { Mail } from "@react-zero-ui/icon-sprite"
@@ -18,24 +17,26 @@ export const RecruiterContact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 100, damping: 14 }}
           viewport={{ once: true, amount: 0.5 }}
-          className="relative flex flex-col gap-8 rounded-2xl border border-gray-300 bg-white p-8 max-lg:text-center"
+          className="relative flex flex-col items-center gap-8 rounded-2xl border border-gray-300 bg-white p-8 max-lg:text-center max-w-2xl mx-auto"
         >
-          <div className="flex items-center gap-3 max-lg:justify-center">
-            <div className="relative h-12 w-12 overflow-hidden rounded-full ring-2 ring-gray/80">
+          <div className="flex items-center gap-3 max-lg:justify-center p-2 w-fit">
+            <div className="relative h-12 w-12 overflow-hidden rounded-full ring-4 ring-slate-200">
               <Image src={profilePhoto} alt="Austin Serb" fill sizes="80px" className="object-cover" />
             </div>
-            <div className="flex items-center gap-2 text-sm text-slate-700">
-              <ActivityDot />
-              <span className="font-medium text-slate-900">Actively interviewing</span>
-              <span className="hidden text-slate-500 sm:inline">- Frontend / Full-Stack</span>
+            <div className="flex items-start text-sm text-slate-700 flex-col">
+              <h2 className="font-medium text-slate-900">Austin Serb</h2>
+              <p className="  text-slate-500 ">Frontend / Full-Stack</p>
             </div>
           </div>
 
-          <div className="flex flex-col items-start gap-4 max-lg:items-center">
-            <H3 className="font-normal tracking-tight">
-              <span className="text-slate-500">Hiring?</span> Let&apos;s chat.
+          <div className="flex flex-col items-center gap-4 max-lg:items-center">
+            <H3 className="font-normal tracking-tight text-center">
+              <span>
+                Building something amazing? <br />
+              </span>
+              <span className="text-slate-500">Let&apos;s chat.</span>
             </H3>
-            <Text className="max-w-2xl">
+            <Text className="max-w-2xl text-center text-balance">
               I build fast, accessible web apps with React, Next.js, and TypeScript. I&apos;m looking for teams that value product quality, performance, and
               thoughtful UX.
             </Text>
@@ -47,9 +48,13 @@ export const RecruiterContact: React.FC = () => {
               Email me
             </BlackButtonLink>
 
-            <WhiteButtonLink href={"https://www.linkedin.com/in/austinserb"}>
-              <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px] text-slate-700" />
+            <WhiteButtonLink href={SITE_NAP.profiles.linkedIn}>
+              <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px] " />
               LinkedIn
+            </WhiteButtonLink>
+            <WhiteButtonLink href={SITE_NAP.profiles.github}>
+              <Icon name="github" height={18} width={18} className="h-[18px] w-[18px] " />
+              GitHub
             </WhiteButtonLink>
           </div>
 

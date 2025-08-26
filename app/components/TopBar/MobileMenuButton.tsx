@@ -24,9 +24,10 @@ export const MobileMenuButton: React.FC = () => {
   return (
     <button
       type="button"
+      tabIndex={isDesktop ? -1 : 0}
       aria-label="Toggle navigation"
       {...(isDesktop && { onPointerEnter: () => setScrolled("down") })}
-      onClick={() => (isDesktop ? setScrolled("down") : setMobileMenu("open"))}
+      onClick={() => (isDesktop ? setScrolled("down") : setMobileMenu((prev) => (prev === "open" ? "closed" : "open")))}
       className={clsx(
         "md:scrolled-down:opacity-0 md:scrolled-down:pointer-events-none group right-3 h-6 w-6 text-sm transition-all duration-300 ease-in-out hover:cursor-pointer md:absolute"
       )}

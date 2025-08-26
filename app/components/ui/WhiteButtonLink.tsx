@@ -4,7 +4,7 @@ export const WhiteButtonLink: React.FC<{ children: React.ReactNode; href: string
       href={href}
       target="_blank"
       className={
-        "group inline-flex items-center gap-2 rounded-full px-4 py-3 text-sm font-medium text-slate-700 ring-1 ring-slate-300 hover:bg-slate-50 whitespace-nowrap " +
+        "bubble-hover shadow-lg flex w-fit items-center gap-1 rounded-full bg-white px-4 py-3 text-sm font-medium text-black hover:translate-y-0.5 transition-all duration-300 hover:shadow-none whitespace-nowrap border  border-gray-300! " +
         className
       }
     >

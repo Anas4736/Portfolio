@@ -42,7 +42,7 @@ export const Socials: React.FC<{
 }> = ({ socialLinks, className, iconClassName }) => {
   return (
     <MotionDiv
-      className={clsx("flex gap-2", className)}
+      className={clsx("flex gap-2 ", className)}
       variants={container}
       initial="hidden"
       whileInView="visible"
@@ -58,7 +58,7 @@ export const Socials: React.FC<{
             aria-label={link.icon}
             title={link.icon}
           >
-            <Icon name={link.icon} height={15} width={15} />
+            <Icon name={link.icon} height={15} width={15} className="text-black" />
           </Link>
         </MotionDiv>
       ))}

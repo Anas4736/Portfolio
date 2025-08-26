@@ -20,7 +20,7 @@ export const ProjectsSection: React.FC = () => {
       <ProjectsGrid />
 
       <Link href={SITE_SLUGS.projects} className="group flex items-center justify-center gap-2">
-        <span className="underline-hover text-xl leading-6 tracking-tight text-slate-700 md:text-2xl">View All Projects</span>
+        <span className="underline-hover text-xl leading-6 tracking-tight text-slate-700 md:text-2xl">View More Projects</span>
         <Icon name="arrow-right" height={18} width={18} className="group-hover:animate-wiggle-right" strokeWidth={0.5} />
       </Link>
     </section>

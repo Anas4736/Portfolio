@@ -16,24 +16,18 @@ export const socialLinks = [
     icon: "facebook",
   },
   {
-    href: SITE_NAP.profiles.pinterest,
-    icon: "pinterest",
+    href: SITE_NAP.profiles.github,
+    icon: "github",
   },
   {
-    href: SITE_NAP.profiles.gbp,
-    icon: "google",
-  },
-  {
-    href: SITE_NAP.profiles.yelp,
-    icon: "yelp",
+    href: SITE_NAP.profiles.x,
+    icon: "x",
   },
 ]
 
 export const FooterV2: React.FC = () => {
   return (
     <footer className="relative z-4 overflow-hidden bg-black">
-      <div className="bg-noise pointer-events-none absolute inset-0 z-0 bg-repeat opacity-10" />
-
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-5.5 pt-12 pb-32 text-white sm:pb-40 md:gap-16 md:px-11 md:pt-16 lg:pb-54">
         <div className="flex flex-col gap-8 md:gap-12">
           <H2 className="text-5xl leading-12 text-white md:text-6xl md:leading-14">
@@ -49,12 +43,12 @@ export const FooterV2: React.FC = () => {
                 austin@serbyte.net
               </Link>
             </li>
-            <li className="flex flex-col gap-1 md:gap-2">
+            {/* <li className="flex flex-col gap-1 md:gap-2">
               <span className="text-gray-500">Call or Text</span>
               <Link href={`tel:${SITE_NAP.phone}`} className="w-fit text-sm transition-colors duration-200 hover:text-gray-500">
                 {SITE_NAP.formattedPhone}
               </Link>
-            </li>
+            </li> */}
             <li className="flex flex-col gap-2">
               <span className="text-gray-500">Socials</span>
               <Socials socialLinks={socialLinks} />
