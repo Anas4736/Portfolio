@@ -1,11 +1,13 @@
+export const DOMAIN_URL = "https://www.austinserb.com"
+
 export const SITE_CONFIG = {
   title: "Austin Serb",
-  description: "A fully optimized Next.js 15 starter template.",
-  url: process.env.NEXT_PUBLIC_URL || "http://localhost:3000",
-  siteName: "My Next.js Starter",
-  keywords: ["Next.js", "Tailwind CSS", "SEO", "TypeScript"],
-  ogImage: "/og-image.png",
-  logo: "/logo.png",
+  description: "Portfolio of Austin Serb, Seattle-based full-stack engineer. Specializing in Next.js, React, TypeScript, and Tailwind CSS.",
+  url: DOMAIN_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000",
+  siteName: "Austin Serb",
+  keywords: ["Austin Serb", "Serbyte", "React Zero-UI", "Next.js", "React", "TypeScript", "Full-Stack Engineer", "Seattle"],
+  ogImage: "/assets/bg-home-poster-optimized.webp",
+  logo: "/serbyte-logo.png",
 } as const
 
 export const SITE_NAP = {

@@ -48,7 +48,7 @@ export function AnimatedAvatars() {
               alt="Reviewer avatar"
               width={40}
               height={40}
-              className="h-full w-full object-contain border-[1px] border-gray-300 bg-white rounded-full p-0.5"
+              className="h-full w-full rounded-full border-[1px] border-gray-300 bg-white object-contain p-0.5"
               sizes="40px"
             />
           </MotionDiv>

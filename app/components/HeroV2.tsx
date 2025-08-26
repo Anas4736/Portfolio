@@ -4,7 +4,7 @@ import { CallToActionButton } from "./ui/CallToActionButton"
 
 export const HeroV2 = () => {
   return (
-    <section className="mx-auto max-w-6xl pt-32 border-b border-gray-200">
+    <section className="mx-auto max-w-6xl pt-32">
       <div className="inside relative flex [flex:1.5_0_0px] px-5.5 pb-12 md:px-11 md:pb-24">
         <div className="flex max-w-lg flex-col gap-8 md:min-w-sm">
           <AnimatedElement

@@ -61,17 +61,17 @@ export const FooterV2: React.FC = () => {
               <span className="text-[#b8b8b8]">Based in </span> Seattle, Washington, USA
             </h3>
             <div className="flex gap-4">
-              <Link href="/terms-of-service" className="text-sm transition-colors duration-200 hover:text-gray-500">
+              {/* <Link href="/terms-of-service" className="text-sm transition-colors duration-200 hover:text-gray-500">
                 Terms of Service
               </Link>
               <Link href="/privacy-policy" className="text-sm transition-colors duration-200 hover:text-gray-500">
                 Privacy Policy
-              </Link>
+              </Link> */}
             </div>
           </div>
           <span className="text-[#b8b8b8]">© 2025 Austin Serb</span>
         </div>
-        <h2 className="large-brand-text absolute -bottom-16 left-0 flex w-full items-center justify-center font-medium text-white md:text-[180px] lg:text-[240px] whitespace-nowrap">
+        <h2 className="large-brand-text absolute -bottom-16 left-0 flex w-full items-center justify-center font-medium whitespace-nowrap text-white md:text-[180px] lg:text-[240px]">
           Austin Serb
         </h2>
       </div>

@@ -2,7 +2,7 @@ import { FooterV2 } from "./components/Footer/FooterV2"
 import localFont from "next/font/local"
 import "./globalsV2.css"
 import { Metadata } from "next"
-import { SITE_CONFIG, SITE_SLUGS } from "@/config/siteConfig"
+import { DOMAIN_URL, SITE_CONFIG, SITE_SLUGS } from "@/config/siteConfig"
 import { TopBarV2 } from "./components/TopBar/TopBarV2"
 import { MotionWrapper } from "./utils/lazy-ui"
 import { Analytics } from "@vercel/analytics/react"
@@ -22,11 +22,9 @@ const switzer = localFont({
   preload: true,
 })
 export const metadata: Metadata = {
-  title: "Serbyte",
-  description: "Serbyte",
-  alternates: {
-    canonical: SITE_CONFIG.url + SITE_SLUGS.home,
-  },
+  metadataBase: new URL(DOMAIN_URL),
+  title: SITE_CONFIG.title,
+  description: SITE_CONFIG.description,
 }
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -36,7 +34,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
           <DesktopCursor />
           <ViewTransitions />
           <LazySplashCursor />
-          <div className="bg-noise custom:mx-auto pointer-events-none absolute inset-0 z-0 mx-3.5 max-w-6xl bg-repeat opacity-4 md:mx-5 lg:mx-8" />
+          <div className="custom:mx-auto pointer-events-none absolute inset-0 z-10 mx-3.5 max-w-6xl [background-image:url('/assets/framer-noise.png')] [background-size:128px] bg-repeat opacity-6 md:mx-5 lg:mx-8" />
           <div className={`${switzer.variable} font-switzer subpixel-antialiased`}>
             <div className="custom:mx-auto pointer-events-none absolute inset-0 z-0 mx-3.5 max-w-6xl border-x border-gray-200 md:mx-5 lg:mx-8" />
             <BottomBlurOverlay />

@@ -131,13 +131,13 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
                 </div>
               </div>
               {/* Right */}
-              <div className={`relative aspect-[5/3] w-full scale-x-50 opacity-0 delay-300 ${animation2} transition-all duration-300 ease-in-out `}>
+              <div className={`relative aspect-[5/3] w-full scale-x-50 opacity-0 delay-300 ${animation2} transition-all duration-300 ease-in-out`}>
                 <TiltedWrapper
                   height="100%"
                   width="100%"
                   scaleOnHover={1.05}
                   rotateAmplitude={8}
-                  className="h-full w-full transform-gpu [box-shadow:var(--button-shadow)]  "
+                  className="h-full w-full transform-gpu [box-shadow:var(--button-shadow)]"
                 >
                   <div className="relative h-full w-full">{phase.feature}</div>
                 </TiltedWrapper>

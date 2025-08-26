@@ -79,7 +79,7 @@ export const CallToActionButton = () => {
             <span className="text-xl">+</span>
             <Icon
               name="github"
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-black text-sm font-semibold  ring-1 ring-black/50"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-sm font-semibold text-black ring-1 ring-black/50"
             />
           </MotionDiv>
         </div>

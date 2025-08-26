@@ -91,13 +91,13 @@ export function DotCursor() {
         height: h,
         willChange: "transform, width, height",
       }}
-      className="pointer-events-none fixed left-0 top-0 z-[60] -translate-x-1/2 -translate-y-1/2 rounded-full isolate overflow-hidden bg-white mix-blend-difference flex items-center justify-center w-fit backdrop-blur-[1px]"
+      className="pointer-events-none fixed top-0 left-0 isolate z-[60] flex w-fit -translate-x-1/2 -translate-y-1/2 items-center justify-center overflow-hidden rounded-full bg-white mix-blend-difference backdrop-blur-[1px]"
     >
       {/* text stays crisp (not blended, not scaled) */}
       <MotionSpan
         ref={labelRef}
         style={{ opacity: labelOpacity }}
-        className="relative z-4  whitespace-nowrap px-2 text-sm font-semibold leading-none select-none"
+        className="relative z-4 px-2 text-sm leading-none font-semibold whitespace-nowrap select-none"
       />
     </MotionDiv>
   )

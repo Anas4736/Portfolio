@@ -42,7 +42,7 @@ export const Socials: React.FC<{
 }> = ({ socialLinks, className, iconClassName }) => {
   return (
     <MotionDiv
-      className={clsx("flex gap-2 ", className)}
+      className={clsx("flex gap-2", className)}
       variants={container}
       initial="hidden"
       whileInView="visible"

@@ -135,7 +135,7 @@ export const BeforeAfterSlider: React.FC<BeforeAfterProps> = memo(
       >
         <div
           ref={containerRef}
-          className="relative max-h-[860px] min-h-[860px] w-full rounded-xl border border-gray-200 shadow-xl bg-gray-300"
+          className="relative max-h-[860px] min-h-[860px] w-full rounded-xl border border-gray-200 bg-gray-300 shadow-xl"
           onMouseMove={handleMouseMove}
           onMouseUp={handleEnd}
           onTouchMove={handleTouchMove}
