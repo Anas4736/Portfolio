@@ -4,7 +4,7 @@ import profilePhoto from "../images/profile.webp"
 import signature from "../images/signature.webp"
 import { Text, Typography } from "../ui/Elements"
 import { AnimatedH2 } from "./ui/AnimatedH2"
-import ImageReveal from "./ImageReveal"
+import { ImageReveal } from "./ImageReveal"
 import { MotionDiv } from "../utils/lazy-ui"
 
 export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {

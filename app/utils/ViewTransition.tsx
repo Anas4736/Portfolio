@@ -17,7 +17,7 @@ function isModifiedClick(e: MouseEvent, el: HTMLAnchorElement) {
   return (target && target !== "_self") || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.which === 2
 }
 
-export default function ViewTransitions() {
+export function ViewTransitions() {
   const router = useRouter()
 
   // CHANGES: replace your onClick with this version
@@ -83,6 +83,7 @@ export default function ViewTransitions() {
   useEffect(() => {
     document.addEventListener("click", onClick)
     return () => document.removeEventListener("click", onClick)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
   return null

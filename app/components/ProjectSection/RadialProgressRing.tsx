@@ -1,4 +1,4 @@
-import CountUp from "@/app/ui/CountUp"
+import { CountUp } from "@/app/ui/CountUp"
 import { MotionCircle, MotionDiv } from "@/app/utils/lazy-ui"
 
 interface RadialProgressRingProps {

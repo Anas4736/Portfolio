@@ -1,7 +1,5 @@
-"use client"
 /* eslint-disable @typescript-eslint/no-explicit-any */
- 
- 
+"use client"
 import React, { useEffect, useRef } from "react"
 
 interface ColorRGB {
@@ -55,7 +53,7 @@ function pointerPrototype(): Pointer {
   }
 }
 
-export default function SplashCursor({
+export function SplashCursor({
   SIM_RESOLUTION = 128,
   DYE_RESOLUTION = 256,
   CAPTURE_RESOLUTION = 512,
@@ -67,22 +65,17 @@ export default function SplashCursor({
   SPLAT_RADIUS = 0.1,
   SPLAT_FORCE = 6000,
   SHADING = false,
-  COLOR_UPDATE_SPEED = 10,
+  COLOR_UPDATE_SPEED = 5,
   BACK_COLOR = { r: 0, g: 0, b: 0 },
   TRANSPARENT = true,
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    const canvas = canvasRef?.current
-
-    if (!canvas) return // Guard canvas early
-
-    // Pointer and config setup
+    const canvas = canvasRef.current
+    if (!canvas) return
     const pointers: Pointer[] = [pointerPrototype()]
 
-    // All these are guaranteed numbers due to destructuring defaults
-    // So we cast them to remove TS warnings:
     const config = {
       SIM_RESOLUTION: SIM_RESOLUTION!,
       DYE_RESOLUTION: DYE_RESOLUTION!,
@@ -101,19 +94,9 @@ export default function SplashCursor({
       TRANSPARENT,
     }
 
-    const detectPerformance = () => {
-      const memory = (performance as any).memory
-      if (memory && memory.jsHeapSizeLimit < 1073741824) {
-        config.SIM_RESOLUTION = 64
-        config.DYE_RESOLUTION = 128
-      }
-    }
-    detectPerformance()
-    // Get WebGL context (WebGL1 or WebGL2)
     const { gl, ext } = getWebGLContext(canvas)
     if (!gl || !ext) return
 
-    // If no linear filtering, reduce resolution
     if (!ext.supportLinearFiltering) {
       config.DYE_RESOLUTION = 256
       config.SHADING = false
@@ -144,11 +127,9 @@ export default function SplashCursor({
       let halfFloat = null
 
       if (isWebGL2) {
-        // For WebGL2
         ;(gl as WebGL2RenderingContext).getExtension("EXT_color_buffer_float")
         supportLinearFiltering = !!(gl as WebGL2RenderingContext).getExtension("OES_texture_float_linear")
       } else {
-        // For WebGL1
         halfFloat = gl.getExtension("OES_texture_half_float")
         supportLinearFiltering = !!gl.getExtension("OES_texture_half_float_linear")
       }
@@ -190,7 +171,6 @@ export default function SplashCursor({
       type: number
     ): { internalFormat: number; format: number } | null {
       if (!supportRenderTextureFormat(gl, internalFormat, format, type)) {
-        // For WebGL2 fallback:
         if ("drawBuffers" in gl) {
           const gl2 = gl as WebGL2RenderingContext
           switch (internalFormat) {
@@ -253,7 +233,7 @@ export default function SplashCursor({
       gl.shaderSource(shader, shaderSource)
       gl.compileShader(shader)
       if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.trace(gl.getShaderInfoLog(shader))
+        // console.trace(gl.getShaderInfoLog(shader))
       }
       return shader
     }
@@ -266,7 +246,7 @@ export default function SplashCursor({
       gl.attachShader(program, fragmentShader)
       gl.linkProgram(program)
       if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-        console.trace(gl.getProgramInfoLog(program))
+        // console.trace(gl.getProgramInfoLog(program))
       }
       return program
     }
@@ -337,7 +317,6 @@ export default function SplashCursor({
       }
     }
 
-    // -------------------- Shaders --------------------
     const baseVertexShader = compileShader(
       gl.VERTEX_SHADER,
       `
@@ -633,7 +612,6 @@ export default function SplashCursor({
     `
     )
 
-    // -------------------- Fullscreen Triangles --------------------
     const blit = (() => {
       const buffer = gl.createBuffer()!
       gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
@@ -661,7 +639,6 @@ export default function SplashCursor({
       }
     })()
 
-    // Types for Framebuffers
     interface FBO {
       texture: WebGLTexture
       fbo: WebGLFramebuffer
@@ -682,14 +659,12 @@ export default function SplashCursor({
       swap: () => void
     }
 
-    // FBO variables
     let dye: DoubleFBO
     let velocity: DoubleFBO
     let divergence: FBO
     let curl: FBO
     let pressure: DoubleFBO
 
-    // WebGL Programs
     const copyProgram = new Program(baseVertexShader, copyShader)
     const clearProgram = new Program(baseVertexShader, clearShader)
     const splatProgram = new Program(baseVertexShader, splatShader)
@@ -701,7 +676,6 @@ export default function SplashCursor({
     const gradienSubtractProgram = new Program(baseVertexShader, gradientSubtractShader)
     const displayMaterial = new Material(baseVertexShader, displayShaderSource)
 
-    // -------------------- FBO creation --------------------
     function createFBO(w: number, h: number, internalFormat: number, format: number, type: number, param: number): FBO {
       gl.activeTexture(gl.TEXTURE0)
       const texture = gl.createTexture()!
@@ -824,7 +798,6 @@ export default function SplashCursor({
       return Math.floor(input * pixelRatio)
     }
 
-    // -------------------- Simulation Setup --------------------
     updateKeywords()
     initFramebuffers()
 
@@ -833,6 +806,7 @@ export default function SplashCursor({
 
     function updateFrame() {
       const dt = calcDeltaTime()
+      if (resizeCanvas()) initFramebuffers()
       updateColors(dt)
       applyInputs()
       step(dt)
@@ -848,19 +822,16 @@ export default function SplashCursor({
       return dt
     }
 
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        const width = scaleByPixelRatio(entry.contentRect.width)
-        const height = scaleByPixelRatio(entry.contentRect.height)
-        if (canvas.width !== width || canvas.height !== height) {
-          canvas.width = width
-          canvas.height = height
-          initFramebuffers()
-        }
+    function resizeCanvas() {
+      const width = scaleByPixelRatio(canvas!.clientWidth)
+      const height = scaleByPixelRatio(canvas!.clientHeight)
+      if (canvas!.width !== width || canvas!.height !== height) {
+        canvas!.width = width
+        canvas!.height = height
+        return true
       }
-    })
-
-    resizeObserver.observe(canvas)
+      return false
+    }
 
     function updateColors(dt: number) {
       colorUpdateTimer += dt * config.COLOR_UPDATE_SPEED
@@ -873,8 +844,6 @@ export default function SplashCursor({
     }
 
     function applyInputs() {
-      if (!pointerDirty) return // Skip if no changes
-      pointerDirty = false
       for (const p of pointers) {
         if (p.moved) {
           p.moved = false
@@ -886,7 +855,6 @@ export default function SplashCursor({
     function step(dt: number) {
       gl.disable(gl.BLEND)
 
-      // Curl
       curlProgram.bind()
       if (curlProgram.uniforms.texelSize) {
         gl.uniform2f(curlProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -896,7 +864,6 @@ export default function SplashCursor({
       }
       blit(curl)
 
-      // Vorticity
       vorticityProgram.bind()
       if (vorticityProgram.uniforms.texelSize) {
         gl.uniform2f(vorticityProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -916,7 +883,6 @@ export default function SplashCursor({
       blit(velocity.write)
       velocity.swap()
 
-      // Divergence
       divergenceProgram.bind()
       if (divergenceProgram.uniforms.texelSize) {
         gl.uniform2f(divergenceProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -926,7 +892,6 @@ export default function SplashCursor({
       }
       blit(divergence)
 
-      // Clear pressure
       clearProgram.bind()
       if (clearProgram.uniforms.uTexture) {
         gl.uniform1i(clearProgram.uniforms.uTexture, pressure.read.attach(0))
@@ -937,7 +902,6 @@ export default function SplashCursor({
       blit(pressure.write)
       pressure.swap()
 
-      // Pressure
       pressureProgram.bind()
       if (pressureProgram.uniforms.texelSize) {
         gl.uniform2f(pressureProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -953,7 +917,6 @@ export default function SplashCursor({
         pressure.swap()
       }
 
-      // Gradient Subtract
       gradienSubtractProgram.bind()
       if (gradienSubtractProgram.uniforms.texelSize) {
         gl.uniform2f(gradienSubtractProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -967,7 +930,6 @@ export default function SplashCursor({
       blit(velocity.write)
       velocity.swap()
 
-      // Advection - velocity
       advectionProgram.bind()
       if (advectionProgram.uniforms.texelSize) {
         gl.uniform2f(advectionProgram.uniforms.texelSize, velocity.texelSizeX, velocity.texelSizeY)
@@ -991,7 +953,6 @@ export default function SplashCursor({
       blit(velocity.write)
       velocity.swap()
 
-      // Advection - dye
       if (!ext.supportLinearFiltering && advectionProgram.uniforms.dyeTexelSize) {
         gl.uniform2f(advectionProgram.uniforms.dyeTexelSize, dye.texelSizeX, dye.texelSizeY)
       }
@@ -1027,7 +988,6 @@ export default function SplashCursor({
       blit(target, false)
     }
 
-    // -------------------- Interaction --------------------
     function splatPointer(pointer: Pointer) {
       const dx = pointer.deltaX * config.SPLAT_FORCE
       const dy = pointer.deltaY * config.SPLAT_FORCE
@@ -1075,7 +1035,6 @@ export default function SplashCursor({
     }
 
     function correctRadius(radius: number) {
-      // Use non-null assertion (canvas can't be null here)
       const aspectRatio = canvas!.width / canvas!.height
       if (aspectRatio > 1) radius *= aspectRatio
       return radius
@@ -1180,86 +1139,81 @@ export default function SplashCursor({
       return ((value - min) % range) + min
     }
 
-    // -------------------- Event Listeners --------------------
-    const active = { run: false } // controls render loop
-    const firstMove = (e: PointerEvent) => {
-      if (!active.run) {
-        active.run = true
+    window.addEventListener("mousedown", (e) => {
+      const pointer = pointers[0]
+      const posX = scaleByPixelRatio(e.clientX)
+      const posY = scaleByPixelRatio(e.clientY)
+      updatePointerDownData(pointer, -1, posX, posY)
+      clickSplat(pointer)
+    })
+
+    function handleFirstMouseMove(e: MouseEvent) {
+      const pointer = pointers[0]
+      const posX = scaleByPixelRatio(e.clientX)
+      const posY = scaleByPixelRatio(e.clientY)
+      const color = generateColor()
+      updateFrame()
+      updatePointerMoveData(pointer, posX, posY, color)
+      document.body.removeEventListener("mousemove", handleFirstMouseMove)
+    }
+    document.body.addEventListener("mousemove", handleFirstMouseMove)
+
+    window.addEventListener("mousemove", (e) => {
+      const pointer = pointers[0]
+      const posX = scaleByPixelRatio(e.clientX)
+      const posY = scaleByPixelRatio(e.clientY)
+      const color = pointer.color
+      updatePointerMoveData(pointer, posX, posY, color)
+    })
+
+    function handleFirstTouchStart(e: TouchEvent) {
+      const touches = e.targetTouches
+      const pointer = pointers[0]
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX)
+        const posY = scaleByPixelRatio(touches[i].clientY)
         updateFrame()
+        updatePointerDownData(pointer, touches[i].identifier, posX, posY)
       }
-      handlePointerMove(e)
-      document.removeEventListener("pointermove", firstMove)
+      document.body.removeEventListener("touchstart", handleFirstTouchStart)
     }
-    document.addEventListener("pointermove", firstMove, { passive: true })
+    document.body.addEventListener("touchstart", handleFirstTouchStart)
 
-    function handlePointerDown(e: PointerEvent) {
-      const p = pointers[0]
-      updatePointerDownData(p, e.pointerId, scaleByPixelRatio(e.clientX), scaleByPixelRatio(e.clientY))
-      clickSplat(p)
-    }
+    window.addEventListener(
+      "touchstart",
+      (e) => {
+        const touches = e.targetTouches
+        const pointer = pointers[0]
+        for (let i = 0; i < touches.length; i++) {
+          const posX = scaleByPixelRatio(touches[i].clientX)
+          const posY = scaleByPixelRatio(touches[i].clientY)
+          updatePointerDownData(pointer, touches[i].identifier, posX, posY)
+        }
+      },
+      false
+    )
 
-    let pointerDirty = false
+    window.addEventListener(
+      "touchmove",
+      (e) => {
+        const touches = e.targetTouches
+        const pointer = pointers[0]
+        for (let i = 0; i < touches.length; i++) {
+          const posX = scaleByPixelRatio(touches[i].clientX)
+          const posY = scaleByPixelRatio(touches[i].clientY)
+          updatePointerMoveData(pointer, posX, posY, pointer.color)
+        }
+      },
+      false
+    )
 
-    function handlePointerMove(e: PointerEvent) {
-      const p = pointers[0]
-      updatePointerMoveData(p, scaleByPixelRatio(e.clientX), scaleByPixelRatio(e.clientY), p.color)
-      pointerDirty = true
-    }
-
-    function handlePointerUp() {
-      updatePointerUpData(pointers[0])
-    }
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        active.run = false
-      } else if (pointers[0].down || pointers[0].moved) {
-        active.run = true
-        updateFrame()
+    window.addEventListener("touchend", (e) => {
+      const touches = e.changedTouches
+      const pointer = pointers[0]
+      for (let i = 0; i < touches.length; i++) {
+        updatePointerUpData(pointer)
       }
-    }
-
-    function handleTouchStart(e: TouchEvent) {
-      if (!active.run) {
-        active.run = true
-        updateFrame()
-      }
-
-      const touch = e.touches[0]
-      const p = pointers[0]
-      updatePointerDownData(p, 0, scaleByPixelRatio(touch.clientX), scaleByPixelRatio(touch.clientY))
-    }
-
-    function handleTouchMove(e: TouchEvent) {
-      const touch = e.touches[0]
-      const p = pointers[0]
-      updatePointerMoveData(p, scaleByPixelRatio(touch.clientX), scaleByPixelRatio(touch.clientY), p.color)
-      pointerDirty = true
-    }
-
-    function handleTouchEnd() {
-      updatePointerUpData(pointers[0])
-    }
-
-    window.addEventListener("touchstart", handleTouchStart, { passive: true })
-    window.addEventListener("touchmove", handleTouchMove, { passive: true })
-    window.addEventListener("touchend", handleTouchEnd, { passive: true })
-
-    window.addEventListener("pointerdown", handlePointerDown, { passive: true })
-    window.addEventListener("pointermove", handlePointerMove, { passive: true })
-    window.addEventListener("pointerup", handlePointerUp, { passive: true })
-    document.addEventListener("visibilitychange", handleVisibilityChange, { passive: true })
-
-    return () => {
-      if (gl && gl.getExtension("WEBGL_lose_context")) {
-        gl.getExtension("WEBGL_lose_context")!.loseContext()
-      }
-      window.removeEventListener("pointerdown", handlePointerDown)
-      window.removeEventListener("pointermove", handlePointerMove)
-      window.removeEventListener("pointerup", handlePointerUp)
-      document.removeEventListener("visibilitychange", handleVisibilityChange)
-      resizeObserver.disconnect()
-    }
+    })
   }, [
     SIM_RESOLUTION,
     DYE_RESOLUTION,

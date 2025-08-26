@@ -20,7 +20,7 @@ const springValues: SpringOptions = {
   mass: 2,
 }
 
-export default function TiltedWrapper({
+export function TiltedWrapper({
   children,
   height = "100%",
   width = "100%",

@@ -4,7 +4,6 @@ import { ResultsSection } from "./ResultsSection"
 import { ApproachSection } from "./ApproachSection"
 import { LargeReview } from "../LargeReview"
 import { MoreProjectsSection } from "./MoreProjectsSection"
-import { LikeWhatYouSeeCard } from "./LikeWhatYouSeeCard"
 import { ProjectData } from "../../data/project-data"
 import { RecruiterContact } from "../RecruiterContact"
 

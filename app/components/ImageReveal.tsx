@@ -8,7 +8,7 @@ interface ImageRevealProps extends Omit<ImageProps, "placeholder"> {
   className?: string
 }
 
-export default function ImageReveal({ className = "", ...img }: ImageRevealProps): ReactElement {
+export function ImageReveal({ className = "", ...img }: ImageRevealProps): ReactElement {
   return (
     <div className={`relative max-w-96 overflow-hidden rounded-2xl ${className} `}>
       <MotionDiv

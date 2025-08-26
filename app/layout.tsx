@@ -4,11 +4,13 @@ import "./globalsV2.css"
 import { Metadata } from "next"
 import { SITE_CONFIG, SITE_SLUGS } from "@/config/siteConfig"
 import { TopBarV2 } from "./components/TopBar/TopBarV2"
-import { DesktopCursor, MotionWrapper } from "./utils/lazy-ui"
+import { MotionWrapper } from "./utils/lazy-ui"
 import { Analytics } from "@vercel/analytics/react"
 import { bodyAttributes } from "@zero-ui/attributes"
-import ViewTransitions from "./utils/ViewTransition"
+import { ViewTransitions } from "./utils/ViewTransition"
 import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
+import { LazySplashCursor } from "./utils/lazy-splash-cursor"
+import { DesktopCursor } from "./utils/lazy-dot-cursor"
 
 const switzer = localFont({
   src: "./fonts/Switzer-Variable.woff2",
@@ -33,7 +35,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
         <MotionWrapper>
           <DesktopCursor />
           <ViewTransitions />
-          {/* <SplashCursor /> */}
+          <LazySplashCursor />
           <div className="bg-noise custom:mx-auto pointer-events-none absolute inset-0 z-0 mx-3.5 max-w-6xl bg-repeat opacity-4 md:mx-5 lg:mx-8" />
           <div className={`${switzer.variable} font-switzer subpixel-antialiased`}>
             <div className="custom:mx-auto pointer-events-none absolute inset-0 z-0 mx-3.5 max-w-6xl border-x border-gray-200 md:mx-5 lg:mx-8" />

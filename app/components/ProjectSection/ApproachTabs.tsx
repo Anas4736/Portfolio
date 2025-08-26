@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { H3, Text } from "@/app/ui/Elements"
-import TiltedWrapper from "@/app/ui/TiltedWrapper"
+import { TiltedWrapper } from "@/app/ui/TiltedWrapper"
 import { Phase } from "./ApproachSection"
 import { useUI } from "@react-zero-ui/core"
 

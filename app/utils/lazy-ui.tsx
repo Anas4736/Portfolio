@@ -1,7 +1,5 @@
 "use client"
 
-import dynamic from "next/dynamic"
-import { useMediaQuery } from "../hooks/useMediaQuery"
 import * as motion from "motion/react-m"
 import { LazyMotion, domAnimation } from "motion/react"
 
@@ -25,14 +23,3 @@ export const MotionPath = motion.path
 export const MotionH1 = motion.h1
 export const MotionP = motion.p
 export const MotionButton = motion.button
-
-const DotCursor = dynamic(() => import("../components/DotCursor").then((m) => m.DotCursor), {
-  ssr: false,
-})
-
-export function DesktopCursor() {
-  const hasFinePointer = useMediaQuery("(pointer:fine)")
-
-  if (!hasFinePointer) return null
-  return <DotCursor />
-}

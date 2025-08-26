@@ -101,4 +101,4 @@ const useThrottle = <T>(value: T, ms: number = 200, options: ThrottleOptions = {
   return { value: state, cancel }
 }
 
-export default useThrottle
+export { useThrottle }

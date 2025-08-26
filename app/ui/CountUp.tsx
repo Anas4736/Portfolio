@@ -17,7 +17,7 @@ interface CountUpProps {
   once?: boolean
 }
 
-export default function CountUp({
+export function CountUp({
   to,
   from = 0,
   direction = "up",

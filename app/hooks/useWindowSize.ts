@@ -48,8 +48,6 @@ export const useWindowSize = ({ initialWidth = 10000, initialHeight = 10000, onC
   return state
 }
 
-export default useWindowSize
-
 export function on<T extends Window | Document | HTMLElement | EventTarget>(
   obj: T | null,
   ...args: Parameters<T["addEventListener"]> | [string, EventListenerOrEventListenerObject | null, unknown]

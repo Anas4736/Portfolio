@@ -1,4 +1,4 @@
-import CountUp from "@/app/ui/CountUp"
+import { CountUp } from "@/app/ui/CountUp"
 import { H3 } from "@/app/ui/Elements"
 import { MotionSpan } from "@/app/utils/lazy-ui"
 
