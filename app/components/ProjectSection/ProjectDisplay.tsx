@@ -6,6 +6,7 @@ import { LargeReview } from "../LargeReview"
 import { MoreProjectsSection } from "./MoreProjectsSection"
 import { LikeWhatYouSeeCard } from "./LikeWhatYouSeeCard"
 import { ProjectData } from "../../data/project-data"
+import { RecruiterContact } from "../RecruiterContact"
 
 const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
   return (
@@ -26,7 +27,7 @@ const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData })
       <ApproachSection phases={projectData.phases} />
       <LargeReview {...projectData.review} />
       <MoreProjectsSection href="/projects/react-zero-ui" />
-      <LikeWhatYouSeeCard />
+      <RecruiterContact />
     </main>
   )
 }

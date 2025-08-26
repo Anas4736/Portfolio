@@ -1,4 +1,3 @@
-import { Link } from "@/app/utils/Link"
 import { ActivityDot } from "./ui/ActivityDot"
 import { AnimatedElement } from "./ui/AnimatedElement"
 import { CallToActionButton } from "./ui/CallToActionButton"

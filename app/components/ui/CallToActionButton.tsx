@@ -3,7 +3,6 @@ import profilePhoto from "@/public/assets/founder.jpg"
 import clsx from "clsx"
 import type { Variants } from "motion"
 import { MotionButton, MotionDiv } from "@/app/utils/lazy-ui"
-import { Github } from "@react-zero-ui/icon-sprite"
 import { SITE_NAP } from "@/config/siteConfig"
 import { Icon } from "../Icon"
 

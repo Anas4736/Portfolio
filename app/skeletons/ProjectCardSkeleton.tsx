@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image"
+import { StaticImageData } from "next/image"
 export const ProjectCardSkeleton = ({ gridId, src, alt, type }: { gridId: string; src: StaticImageData; alt: string; type: string }) => {
   return (
     <div data-grid-id={gridId}>
