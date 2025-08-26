@@ -42,7 +42,7 @@ export const SITE_NAP = {
 export const SITE_SLUGS = {
   home: "/",
   projects: "/projects",
-  contact: "/contact",
+  contact: "/#contact",
   projectLinks: {
     iao: "/projects/iron-and-oak",
     automedics: "/projects/automedics",

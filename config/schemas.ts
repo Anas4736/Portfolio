@@ -1,69 +1,34 @@
-import type { LocalBusiness, WithContext, CollectionPage } from "schema-dts"
+import type { WithContext, CollectionPage, ProfilePage, BreadcrumbList } from "schema-dts"
 import { SITE_CONFIG, SITE_NAP, SITE_SLUGS, externalLinks } from "./siteConfig"
 
-export const localBusinessSchema: WithContext<LocalBusiness> = {
-  "@context": "https://schema.org",
-  "@type": SITE_NAP.googleBusinessType,
-  name: SITE_NAP.name,
-  image: SITE_NAP.images,
-  url: SITE_CONFIG.url,
-  telephone: SITE_NAP.phone,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: SITE_NAP.street,
-    addressLocality: SITE_NAP.city,
-    addressRegion: SITE_NAP.state,
-    postalCode: SITE_NAP.zipCode,
-    addressCountry: "US",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: 47.717,
-    longitude: -122.205,
-  },
-
-  review: {
-    "@type": "Review",
-    reviewRating: { "@type": "Rating", ratingValue: 5, bestRating: 5 },
-    author: { "@type": "Person", name: "Garrett Harris" },
-  },
-
-  openingHoursSpecification: {
-    "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-    opens: "09:00",
-    closes: "18:00",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: SITE_NAP.phone,
-      contactType: "customer service",
-    },
-  ],
-  sameAs: Object.values(SITE_NAP.profiles),
+interface ProjectItem {
+  name: string
+  url: string
+  date: string
+  description: string
+  isExternal: boolean
 }
 
 // Project data for schema
-const projectsData = [
+const projectsData: ProjectItem[] = [
   {
     name: "React Zero-UI",
     url: externalLinks.zeroCore,
-    date: "2024-07-01",
+    date: "2025-06-01",
     description: "Zero Re-Render State Library",
     isExternal: true,
   },
   {
     name: "Bespoke Tint & PPF",
     url: SITE_SLUGS.projectLinks.bespoke,
-    date: "2024-03-11",
+    date: "2025-03-11",
     description: "Automotive Styling Website",
     isExternal: false,
   },
   {
     name: "Vets Choice Insurance",
     url: externalLinks.vetsChoice,
-    date: "2024-05-20",
+    date: "2025-05-20",
     description: "Pet Insurance Website",
     isExternal: true,
   },
@@ -77,21 +42,21 @@ const projectsData = [
   {
     name: "Automedics",
     url: SITE_SLUGS.projectLinks.automedics,
-    date: "2024-02-02",
+    date: "2024-12-02",
     description: "Automotive Repair Website",
     isExternal: false,
   },
   {
     name: "Iron & Oak",
     url: SITE_SLUGS.projectLinks.iao,
-    date: "2024-01-15",
+    date: "2024-06-15",
     description: "Private Security Website",
     isExternal: false,
   },
   {
     name: "Entitled",
     url: externalLinks.entitled,
-    date: "2024-04-10",
+    date: "2024-02-10",
     description: "Event Management Web App",
     isExternal: true,
   },
@@ -116,4 +81,103 @@ export const projectsSchema: WithContext<CollectionPage> = {
       dateCreated: project.date,
     })),
   },
+}
+
+export const profilePageSchema: WithContext<ProfilePage> = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  name: "About — Austin Serb",
+  url: `${SITE_CONFIG.url}/about`,
+  mainEntity: { "@id": `${SITE_CONFIG.url}/#austin` },
+}
+
+export const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: `${SITE_CONFIG.url}/contact`,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "Hiring",
+      email: SITE_NAP.email,
+      areaServed: "US",
+      availableLanguage: ["en"],
+    },
+  ],
+}
+
+export const breadcrumbSchema: WithContext<BreadcrumbList> = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_CONFIG.url },
+    { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_CONFIG.url}${SITE_SLUGS.projects}` },
+  ],
+}
+
+// Function to generate project-specific breadcrumb schema
+export const createProjectBreadcrumbSchema = (projectName: string, projectUrl: string): WithContext<BreadcrumbList> => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: SITE_CONFIG.url },
+    { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_CONFIG.url}${SITE_SLUGS.projects}` },
+    { "@type": "ListItem", position: 3, name: projectName, item: `${SITE_CONFIG.url}${projectUrl}` },
+  ],
+})
+
+const projectBreadcrumbSchema: WithContext<BreadcrumbList> = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "Person",
+      "@id": "https://serbyte.dev/#austin",
+      name: "Austin Serb",
+      url: SITE_CONFIG.url,
+      jobTitle: "Full-Stack Engineer",
+      image: { "@id": "https://serbyte.dev/#headshot" },
+      worksFor: { "@id": "https://serbyte.dev/#serbyte" },
+      sameAs: Object.values(SITE_NAP.profiles).map((profiles) => profiles),
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "Hiring",
+          email: SITE_NAP.email,
+          areaServed: "US",
+          availableLanguage: ["en"],
+        },
+      ],
+    },
+    {
+      "@type": "Organization",
+      "@id": `${SITE_CONFIG.url}#serbyte`,
+      name: "Serbyte Development",
+      url: SITE_CONFIG.url,
+      logo: { "@id": "https://serbyte.dev/#logo" },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_CONFIG.url}#website`,
+      name: "Austin Serb — Developer Portfolio",
+      url: SITE_CONFIG.url,
+      publisher: { "@id": `${SITE_CONFIG.url}#austin` },
+      inLanguage: "en",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": `${SITE_CONFIG.url}#headshot`,
+      url: `${SITE_CONFIG.url}/profile.webp`,
+    },
+    {
+      "@type": "ImageObject",
+      "@id": `${SITE_CONFIG.url}#logo`,
+      url: `${SITE_CONFIG.url}/serbyte-logo.png`,
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: ["Home", "Projects", "Contact"],
+      url: [SITE_CONFIG.url, `${SITE_CONFIG.url}${SITE_SLUGS.projects}`, `${SITE_CONFIG.url}${SITE_SLUGS.contact}`],
+    },
+  ],
 }

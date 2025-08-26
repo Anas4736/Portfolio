@@ -4,7 +4,7 @@ import { ProjectsStatic } from "./ProjectsStatic"
 import { RecruiterContact } from "@/app/components/RecruiterContact"
 import { Metadata } from "next"
 import { SITE_SLUGS } from "@/config/siteConfig"
-import { projectsSchema } from "@/config/schemas"
+import { projectsSchema, breadcrumbSchema } from "@/config/schemas"
 
 export const metadata: Metadata = {
   title: "Austin Serb - Projects & Case Studies",
@@ -20,7 +20,7 @@ const page = () => {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(projectsSchema),
+          __html: JSON.stringify([projectsSchema, breadcrumbSchema]),
         }}
       />
       <WorkHero />

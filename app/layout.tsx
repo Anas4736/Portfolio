@@ -2,7 +2,7 @@ import { FooterV2 } from "./components/Footer/FooterV2"
 import localFont from "next/font/local"
 import "./globalsV2.css"
 import { Metadata } from "next"
-import { DOMAIN_URL, SITE_CONFIG, SITE_SLUGS } from "@/config/siteConfig"
+import { DOMAIN_URL, SITE_CONFIG } from "@/config/siteConfig"
 import { TopBarV2 } from "./components/TopBar/TopBarV2"
 import { MotionWrapper } from "./utils/lazy-ui"
 import { Analytics } from "@vercel/analytics/react"
@@ -11,6 +11,7 @@ import { ViewTransitions } from "./utils/ViewTransition"
 import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
+import { breadcrumbSchema, contactPageSchema, profilePageSchema } from "@/config/schemas"
 
 const switzer = localFont({
   src: "./fonts/Switzer-Variable.woff2",
@@ -40,6 +41,24 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <BottomBlurOverlay />
             <TopBarV2 />
             {children}
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(contactPageSchema),
+              }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(profilePageSchema),
+              }}
+            />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(breadcrumbSchema),
+              }}
+            />
             <FooterV2 />
           </div>
         </MotionWrapper>
