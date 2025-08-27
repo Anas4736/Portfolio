@@ -53,8 +53,8 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
               APIs, background jobs, CI/CD, and observability. Small PRs, rapid feedback, no ceremony.
             </p>
             <p>
-              <strong className="font-semibold text-slate-900">My core philosophy is ruthless simplicity</strong>. if complexity balloons, I delete it and
-              design the simpler path.
+              <strong className="font-semibold text-slate-900">My core philosophy is simplicity</strong>. if complexity balloons, I delete it and design the
+              simpler path.
             </p>
 
             {/* signature */}
