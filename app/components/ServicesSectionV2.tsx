@@ -75,7 +75,7 @@ const element2: Variants = {
 }
 export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: string }) => {
   return (
-    <section id="technologies" className={clsx("inside-container items-start justify-center bg-white md:flex-row md:items-center", className)}>
+    <section id="technologies" className={clsx("inside-container relative z-2 items-start justify-center md:flex-row md:items-center", className)}>
       {/*  LEFT COLUMN  */}
       <div className="flex [flex:2_0_0px] flex-col gap-16">
         <AnimatedH2>

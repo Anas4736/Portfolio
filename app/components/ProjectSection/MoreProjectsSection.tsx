@@ -7,11 +7,11 @@ import { Link } from "@/app/utils/Link"
 
 export const MoreProjectsSection = ({ href }: { href: string }) => {
   return (
-    <section className="inside-container">
+    <section className="inside-container relative z-2">
       <HeaderText title="More Projects" />
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="relative h-full w-full">
-          <div className="card-image absolute inset-0 flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-white opacity-90 transition-opacity duration-500 will-change-transform group-hover:after:opacity-0 md:rounded-3xl">
+          <div className="card-image h-full w-full md:flex flex-col items-center justify-center overflow-hidden rounded-2xl border border-gray-200 bg-white opacity-90 transition-opacity duration-500 will-change-transform group-hover:after:opacity-0 md:rounded-3xl hidden">
             <div className="rounded-lg bg-gray-300 p-5">
               <Icon name="plus" className="h-5 w-5 fill-white text-white" />
             </div>{" "}

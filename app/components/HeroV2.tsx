@@ -10,7 +10,7 @@ export const HeroV2 = () => {
           <AnimatedElement
             element="span"
             delay={0.6}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg"
+            className="inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg z-2"
           >
             <ActivityDot /> Open to audacious work
           </AnimatedElement>

@@ -5,7 +5,7 @@ import { ProjectHeroProps } from "@/app/data/project-data"
 
 export const ProjectHero: React.FC<ProjectHeroProps> = ({ title, client, year, description, categories, link }) => {
   return (
-    <section className="inside-container-large flex max-w-2xl flex-col gap-8">
+    <section className="inside-container-large relative z-2 flex max-w-2xl flex-col gap-8">
       <H1 variant="medium" className="wrap-break-word">
         {title}
       </H1>

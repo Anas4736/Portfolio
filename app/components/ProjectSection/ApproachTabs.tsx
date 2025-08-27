@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
 import { H3, Text } from "@/app/ui/Elements"
-import { TiltedWrapper } from "@/app/ui/TiltedWrapper"
 import { Phase } from "./ApproachSection"
 import { useScopedUI } from "@react-zero-ui/core"
 import { LazyTiltedWrapper } from "@/app/utils/lazy-splash-cursor"
@@ -55,7 +54,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
   const tabWidthPct = 100 / phases.length
 
   return (
-    <div data-phase={phase} ref={setPhase.ref} className="flex flex-col gap-4" style={{ "--phases-length": phases.length } as React.CSSProperties}>
+    <div data-phase={phase} ref={setPhase.ref} className="flex flex-col sm:gap-8 gap-4" style={{ "--phases-length": phases.length } as React.CSSProperties}>
       {/* Phase Navigation - Tab Style */}
       <div className="relative rounded-2xl sm:py-2">
         {/* Animated Background for Active Tab */}

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 }
 const page = () => {
   return (
-    <div>
+    <main className="relative z-1">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -26,7 +26,7 @@ const page = () => {
       <WorkHero />
       <ProjectsStatic />
       <RecruiterContact />
-    </div>
+    </main>
   )
 }
 

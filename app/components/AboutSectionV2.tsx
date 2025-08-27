@@ -10,7 +10,7 @@ import { MotionDiv } from "../utils/lazy-ui"
 export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
   return (
     <section id="about" className={clsx("border-y border-gray-200 bg-white", className)}>
-      <div className="inside-container">
+      <div className="inside-container relative z-2">
         {/* HEADLINE */}
         <AnimatedH2>
           <span className="text-slate-500">About</span>
@@ -58,7 +58,7 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
             </p>
 
             {/* signature */}
-            <Image src={signature} alt="Austin Serb Signature" width={90} height={45} className="mt-6 -ml-3 -rotate-6" />
+            <Image src={signature} alt="Austin Serb Signature" width={90} height={45} className="mt-6 -ml-3 -rotate-6 relative" />
           </Typography>
         </div>
       </div>

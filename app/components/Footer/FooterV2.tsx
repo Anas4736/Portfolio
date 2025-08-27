@@ -27,7 +27,7 @@ export const socialLinks = [
 
 export const FooterV2: React.FC = () => {
   return (
-    <footer className="relative z-4 overflow-hidden bg-black">
+    <footer className="relative overflow-hidden bg-black">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-5.5 pt-12 pb-32 text-white sm:pb-40 md:gap-16 md:px-11 md:pt-16 lg:pb-54">
         <div className="flex flex-col gap-8 md:gap-12">
           <H2 className="text-5xl leading-12 text-white md:text-6xl md:leading-14">
