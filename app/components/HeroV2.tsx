@@ -10,7 +10,7 @@ export const HeroV2 = () => {
           <AnimatedElement
             element="span"
             delay={0.6}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg z-2"
+            className="z-2 inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg"
           >
             <ActivityDot /> Open to audacious work
           </AnimatedElement>
@@ -40,7 +40,7 @@ export const HeroV2 = () => {
           <CallToActionButton />
         </div>
         {/* Don't remove this span */}
-        <span data-stack-target-id className="xs:ml-[8%] mt-20 ml-[4%] [flex:1_0_0px] sm:mt-10 sm:ml-0 md:ml-[8%]" />
+        <span data-stack-target-id className="xs:ml-[8%] [flex:1 _0_0px] xs:mt-20 mt-24 ml-[4%] h-1 w-2 sm:mt-11" />
 
         {/* subtle background ellipse */}
         <div className="pointer-events-none absolute inset-y-0 left-1/3 -z-1 hidden w-full bg-radial from-indigo-100 via-transparent to-transparent blur-3xl md:block" />

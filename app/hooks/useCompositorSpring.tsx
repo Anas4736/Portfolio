@@ -15,7 +15,7 @@ export function useCompositorSpring(ref: RefObject<HTMLElement | null>, progress
         },
         { transform: "translate3d(0, 0, 0) scale(1) rotate(0)" },
       ],
-      { duration: 1000, fill: "both", easing: "linear" }
+      { duration: 1000, fill: "both", easing: "ease-out" }
     )
     anim.pause() // we'll scrub it manually
     const total = anim.effect!.getComputedTiming().endTime // 1000 ms

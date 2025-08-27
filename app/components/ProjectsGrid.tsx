@@ -18,21 +18,21 @@ export function ProjectsGrid({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const rawOffsets = useOffset(ids)
   const isMobile = useIsMobile()
-  const responsiveScale = isMobile ? 0.27 : 0.7
+  const responsiveScale = isMobile ? 0.34 : 0.7
   const [, setReveal] = useUI<"true" | "false">("reveal", "false")
 
   const { scrollYProgress } = useScroll({
-    offset: isMobile ? ["start start", "9% start"] : ["start start", "13% start"],
+    offset: isMobile ? ["start start", "10% start"] : ["start start", "15% start"],
   })
   const stiffness = isMobile ? 120 : 220
   const damping = isMobile ? 40 : 90
   const progress = useSpring(scrollYProgress, { stiffness, damping })
 
   const OFFSET_TUNING: Record<string, Partial<HeroOffset>> = {
-    "react-zero-ui": { rot: 9, s: responsiveScale, dx: isMobile ? -200 : -30, dy: isMobile ? -120 : -40 },
-    "iron-and-oak": { rot: -5, s: responsiveScale, dx: isMobile ? -210 : -60, dy: isMobile ? -130 : -40 },
-    automedics: { rot: 5, s: responsiveScale, dx: isMobile ? -205 : -45, dy: isMobile ? -130 : -25 },
-    bespoke: { rot: 12, s: responsiveScale, dx: isMobile ? -210 : -50, dy: isMobile ? -110 : -10 },
+    "react-zero-ui": { rot: 9, s: responsiveScale, dx: isMobile ? -220 : -30, dy: isMobile ? -120 : -40 },
+    "iron-and-oak": { rot: -5, s: responsiveScale, dx: isMobile ? -230 : -60, dy: isMobile ? -130 : -40 },
+    automedics: { rot: 5, s: responsiveScale, dx: isMobile ? -225 : -45, dy: isMobile ? -130 : -25 },
+    bespoke: { rot: 12, s: responsiveScale, dx: isMobile ? -230 : -50, dy: isMobile ? -110 : -10 },
   }
 
   const offsets = Object.fromEntries(
@@ -61,7 +61,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
         setReveal(inView ? "true" : "false")
       },
       {
-        threshold: isMobile ? 0.2 : 0.3,
+        threshold: isMobile ? 0.5 : 0.8,
       }
     )
     observer.observe(element)
