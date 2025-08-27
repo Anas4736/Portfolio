@@ -88,7 +88,15 @@ export const profilePageSchema: WithContext<ProfilePage> = {
   "@type": "ProfilePage",
   name: "About — Austin Serb",
   url: `${SITE_CONFIG.url}/about`,
-  mainEntity: { "@id": `${SITE_CONFIG.url}/#austin` },
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${SITE_CONFIG.url}/#austin`,
+    name: "Austin Serb",
+    url: SITE_CONFIG.url,
+    jobTitle: "Full-Stack Engineer",
+    email: SITE_NAP.email,
+    sameAs: Object.values(SITE_NAP.profiles),
+  },
 }
 
 export const contactPageSchema = {
