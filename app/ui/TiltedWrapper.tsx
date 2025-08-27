@@ -4,7 +4,7 @@ import { useRef, useCallback } from "react"
 import { useMotionValue, useSpring } from "motion/react"
 import { MotionDiv } from "../utils/lazy-ui"
 
-interface TiltedWrapperProps {
+export interface TiltedWrapperProps {
   children: React.ReactNode
   height?: React.CSSProperties["height"]
   width?: React.CSSProperties["width"]
@@ -87,7 +87,7 @@ export function TiltedWrapper({
       onMouseLeave={handleMouseLeave}
     >
       <MotionDiv
-        className={`relative h-full w-full will-change-transform [transform-style:preserve-3d] ${className}`}
+        className={`relative h-full xxs:w-full will-change-transform [transform-style:preserve-3d] ${className}`}
         style={{
           rotateX,
           rotateY,

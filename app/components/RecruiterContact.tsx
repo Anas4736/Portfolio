@@ -10,7 +10,7 @@ import { WhiteButtonLink } from "./ui/WhiteButtonLink"
 
 export const RecruiterContact: React.FC = () => {
   return (
-    <section id="contact" className="border-t border-gray-200">
+    <section id="contact" className="scroll-mt-20 border-t border-gray-200">
       <div className="inside-container-small">
         <MotionDiv
           initial={{ opacity: 0, y: 24 }}

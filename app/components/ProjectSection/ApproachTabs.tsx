@@ -3,14 +3,15 @@ import Image from "next/image"
 import { H3, Text } from "@/app/ui/Elements"
 import { TiltedWrapper } from "@/app/ui/TiltedWrapper"
 import { Phase } from "./ApproachSection"
-import { useUI } from "@react-zero-ui/core"
+import { useScopedUI } from "@react-zero-ui/core"
+import { LazyTiltedWrapper } from "@/app/utils/lazy-splash-cursor"
 
 const TAB_ACTIVE_CLASS: Record<string, string> = {
-  "1": "phase-1:text-slate-200",
-  "2": "phase-2:text-slate-200",
-  "3": "phase-3:text-slate-200",
-  "4": "phase-4:text-slate-200",
-  "5": "phase-5:text-slate-200",
+  "1": "phase-1:text-slate-200 phase-1:border-none",
+  "2": "phase-2:text-slate-200 phase-2:border-none",
+  "3": "phase-3:text-slate-200 phase-3:border-none",
+  "4": "phase-4:text-slate-200 phase-4:border-none",
+  "5": "phase-5:text-slate-200 phase-5:border-none",
 }
 
 const PANEL_VISIBLE_CLASS: Record<PhaseId, string> = {
@@ -49,18 +50,18 @@ type PhaseId = "1" | "2" | "3" | "4" | "5"
 export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
   if (phases.length > 5) throw new Error("ApproachTabs max 5 phases")
 
-  const [, setPhase] = useUI<PhaseId>("phase", "1")
+  const [phase, setPhase] = useScopedUI<PhaseId>("phase", "1")
 
   const tabWidthPct = 100 / phases.length
 
   return (
-    <div className="flex flex-col gap-4">
+    <div data-phase={phase} ref={setPhase.ref} className="flex flex-col gap-4" style={{ "--phases-length": phases.length } as React.CSSProperties}>
       {/* Phase Navigation - Tab Style */}
-      <div className="relative rounded-2xl md:py-2">
+      <div className="relative rounded-2xl sm:py-2">
         {/* Animated Background for Active Tab */}
         <div
           className={
-            "absolute inset-2 left-0 rounded-xl bg-gradient-to-br from-slate-500 to-slate-900 [box-shadow:var(--button-shadow)]" +
+            "absolute inset-0 left-0 rounded-xl bg-gradient-to-br from-slate-500 to-slate-900 [box-shadow:var(--button-shadow)] sm:inset-y-2 z-1" +
             " phase-1:translate-x-[0%] phase-2:translate-x-[100%] phase-3:translate-x-[200%] phase-4:translate-x-[300%] phase-5:translate-x-[400%] transition-transform duration-300 ease-in-out"
           }
           style={{
@@ -69,7 +70,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
         />
 
         {/* Tab Buttons */}
-        <div className="relative grid" style={{ gridTemplateColumns: `repeat(${phases.length}, minmax(0, 1fr))` }}>
+        <div className="relative w-full justify-between grid [grid-template-columns:repeat(var(--phases-length),minmax(0,1fr))]">
           {phases.map((phase) => {
             const phaseId = String(phase.id) as PhaseId
             const tw = TAB_ACTIVE_CLASS[phaseId]
@@ -77,14 +78,15 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
               <button
                 key={phase.id}
                 onClick={() => setPhase(phaseId)}
-                className={`group relative z-1 rounded-xl p-4 text-center transition-all duration-300 ${tw}`}
+                className={`group relative rounded-xl p-4 text-center shadow-inner shadow-slate-900/20 transition-all duration-500 sm:p-2 ${tw} `}
               >
-                <div className="flex flex-col items-center">
-                  <div>
+                <div className="absolute inset-0 rounded-xl border border-slate-300 z-0" />
+                <div className="flex flex-col items-center gap-1 ">
+                  <div className="z-1">
                     <Image src={phase.icon} alt={phase.title} width={50} height={50} />
-                    <span className="mb-1 text-xs font-semibold text-nowrap">Phase {phase.id}</span>
+                    <span className="text-xs font-semibold text-nowrap max-sm:hidden">Phase {phase.id}</span>
                   </div>
-                  <span className="text-xs leading-tight opacity-75 sm:text-nowrap">{phase.title}</span>
+                  <span className="text-xs leading-tight opacity-75 sm:text-nowrap z-1">{phase.title}</span>
                 </div>
               </button>
             )
@@ -103,36 +105,36 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
           return (
             <div
               key={pid}
-              className={`pointer-events-none absolute inset-0 grid translate-x-5 grid-cols-1 items-start gap-12 opacity-0 transition-all duration-300 ease-in-out lg:grid-cols-2 ${tw} ${animation}`}
+              className={`pointer-events-none absolute inset-0 grid translate-x-5 grid-cols-1 items-start gap-4 opacity-0 transition-all duration-300 ease-in-out md:gap-12 lg:grid-cols-2 ${tw} ${animation}`}
             >
               {/* Left */}
-              <div className="space-y-2 md:space-y-6">
-                <div className="flex items-center gap-4">
-                  <Image src={phase.icon} alt={phase.title} width={100} height={100} />
+              <div className="space-y-2 md:space-y-4">
+                <div className="flex items-center gap-4 max-sm:justify-center">
+                  <Image src={phase.icon} alt={phase.title} width={100} height={100} className="max-sm:w-20 max-sm:h-20" />
                   <div>
-                    <H3 className="mb-2">{phase.title}</H3>
-                    <Text>{phase.subtitle}</Text>
+                    <H3 className="mb-2 max-sm:text-xl">{phase.title}</H3>
+                    <Text size="sm">{phase.subtitle}</Text>
                   </div>
                 </div>
-                <Text size="lg" className="text-slate-700">
-                  {phase.description}
-                </Text>
-                <div className="hidden space-y-3 md:block">
+                <Text>{phase.description}</Text>
+                <ul className="hidden space-y-2 md:block list-disc">
                   {phase.details.map((detail, i) => (
-                    <div
+                    <li
                       key={i}
                       className={`flex items-center gap-3 opacity-0 ${detailsAnimation}`}
                       style={{ ["--d" as keyof React.CSSProperties]: i + 1 } as React.CSSProperties}
                     >
                       <div className="aspect-square h-2 w-2 rounded-full bg-slate-900" />
-                      <Text className="leading-relaxed text-slate-600">{detail}</Text>
-                    </div>
+                      <Text size="sm" className="leading-relaxed text-slate-600">
+                        {detail}
+                      </Text>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
               {/* Right */}
               <div className={`relative aspect-[5/3] w-full scale-x-50 opacity-0 delay-300 ${animation2} transition-all duration-300 ease-in-out`}>
-                <TiltedWrapper
+                <LazyTiltedWrapper
                   height="100%"
                   width="100%"
                   scaleOnHover={1.05}
@@ -140,7 +142,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
                   className="h-full w-full transform-gpu [box-shadow:var(--button-shadow)]"
                 >
                   <div className="relative h-full w-full">{phase.feature}</div>
-                </TiltedWrapper>
+                </LazyTiltedWrapper>
               </div>
             </div>
           )
