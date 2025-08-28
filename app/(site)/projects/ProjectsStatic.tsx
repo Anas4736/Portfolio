@@ -23,7 +23,7 @@ type StaticProject = {
   isExternal: boolean
 }
 
-const STATIC_PROJECTS: StaticProject[] = [
+export const STATIC_PROJECTS: StaticProject[] = [
   {
     id: "react-zero-ui",
     src: zeroPreview,

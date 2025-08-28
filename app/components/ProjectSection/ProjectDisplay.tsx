@@ -25,7 +25,7 @@ const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData })
       <ResultsSection analyticCards={projectData.results} />
       <ApproachSection phases={projectData.phases} />
       <LargeReview {...projectData.review} />
-      <MoreProjectsSection href="/projects/react-zero-ui" />
+      <MoreProjectsSection />
       <RecruiterContact />
     </main>
   )

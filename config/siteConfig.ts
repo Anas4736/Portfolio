@@ -43,6 +43,7 @@ export const SITE_SLUGS = {
   home: "/",
   projects: "/projects",
   contact: "/#contact",
+  about: "/#about-austin-serb",
   projectLinks: {
     iao: "/projects/iron-and-oak",
     automedics: "/projects/automedics",

@@ -2,10 +2,11 @@ import { Icon } from "../Icon"
 import { Link } from "../../utils/Link"
 import { MobileMenuButton } from "./MobileMenuButton"
 import { MobileMenu } from "./MobileMenu"
+import { SITE_SLUGS } from "@/config/siteConfig"
 
 const navItems = [
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/#about" },
+  { name: "Projects", href: SITE_SLUGS.projects },
+  { name: "About", href: SITE_SLUGS.about },
 ]
 
 export const TopBarV2: React.FC = () => {

@@ -42,15 +42,22 @@ export const BeforeAfterSection: React.FC<BeforeAfterSectionProps> = ({
           initialPosition={70}
           before={
             <>
-              <Image src={heroBefore} alt={beforeAltText} fill className="hidden rounded-xl object-cover object-top lg:block" priority />
-              <Image src={heroBeforeMobile} alt={beforeMobileAltText} fill className="block rounded-xl object-cover object-top lg:hidden" priority />
+              <Image src={heroBefore} alt={beforeAltText} fill className="hidden rounded-xl object-cover object-top lg:block" priority sizes="80vw" />
+              <Image
+                src={heroBeforeMobile}
+                alt={beforeMobileAltText}
+                fill
+                className="block rounded-xl object-cover object-top lg:hidden"
+                priority
+                sizes="80vw"
+              />
             </>
           }
           after={
             iframe ? (
               <iframe title="Bespoke Hero After" src={iframe} className="h-full w-full rounded-xl border-0 bg-white" scrolling="no" loading="lazy" />
             ) : (
-              heroAfter && <Image src={heroAfter} alt={afterAltText} fill className="rounded-xl object-cover object-top" priority />
+              heroAfter && <Image src={heroAfter} alt={afterAltText} fill className="rounded-xl object-cover object-top" priority sizes="80vw" />
             )
           }
         />
