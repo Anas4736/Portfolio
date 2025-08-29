@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @source not "../public/bespoke-hero.html";
-@variant reveal-false ([data-reveal="false"] &);
+
+@custom-variant reveal-false ([data-reveal="false"] &);
 
 /* *:not(:has(border-none)) {
   border: 1px dotted red;
