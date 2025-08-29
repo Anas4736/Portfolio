@@ -18,7 +18,7 @@ export const BottomBlurOverlay: React.FC<BottomBlurOverlayProps> = ({ layers = 8
 
   return (
     <div
-      className={`blur-overlay ${className}`}
+      className={`blur-overlay touch:hidden ${className}`}
       style={{
         pointerEvents: "none",
         position: "fixed",

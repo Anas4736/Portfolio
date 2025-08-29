@@ -71,10 +71,10 @@ export const bespoke: ProjectData = {
     year: "2025",
     description: (
       <>
-        Bespoke Tint & PPF&apos;s site was rebuilt from the ground up into a lightning fast, conversion first engine-every page reverse-engineered around the
+        Bespoke Tint & PPF&apos;s site was rebuilt from the ground up into a lightning-fast, conversion-first engine, every page reverse-engineered around the
         highest-value competitor keywords in the Bellevue auto-styling market. In under 90 days, organic{" "}
-        <span className="font-semibold">traffic increased nearly 1000%</span>, the shop is booking an average of{" "}
-        <span className="font-semibold">3 new paying clients per day</span>, and it&apos;s now on a clear trajectory to break $1 million in 2025 revenue.
+        <span className="font-semibold">traffic increased by nearly 1,000%</span>; the shop is booking an average of{" "}
+        <span className="font-semibold">3 new paying clients per day</span>; and it&apos;s on track to surpass $1M in 2025 revenue.
       </>
     ),
     categories: ["SEO", "Web Design", "Web Development", "Photography"],
@@ -208,7 +208,7 @@ export const automedicsKirkland: ProjectData = {
     client: "Automedics Kirkland",
     year: "2025",
     description:
-      "I replaced AutoMedics' dated brochure site with a conversion-focused, SEO-engineered platform that now channels local search traffic into booked service slots while showcasing 1,000-plus ★★★★★ reviews.",
+      "I replaced Automedics Kirkland's dated brochure site with a conversion-focused, SEO-engineered Next.js platform that channels local search traffic into booked service bays and showcases 1,000+ five-star reviews.",
     categories: ["Next.js", "Web Design", "Local SEO", "Copywriting"],
     link: "https://www.automedicskirkland.com",
   },
@@ -315,7 +315,7 @@ export const iao: ProjectData = {
     client: "Iron & Oak Seattle",
     year: "2024",
     description:
-      "I dug deep into the story of Iron & Oak Seattle, a Seattle-based private security company that was born in the craziness that was Covid-19. I created a brand new website that tells the story of the company and its history and scrapped the internet for media coverage articles and mentions, the goal was to increase online applicants, and it worked.",
+      "I dug into Iron & Oak Seattle's origin story-founded amid the COVID-19 disruptions-and rebuilt their website in Next.js around a clear, narrative-driven structure. I also scraped the web for press mentions and coverage to reinforce credibility. The goal was simple: increase qualified online applicants. It worked, driving a noticeable lift in submissions.",
     categories: ["Next.js", "Web Design", "Web Development", "Storytelling"],
     link: "https://iao-seattle.vercel.app/?src=serbyte",
   },

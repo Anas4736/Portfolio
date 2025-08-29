@@ -65,7 +65,7 @@ const projectsData: ProjectItem[] = [
 export const projectsSchema: WithContext<CollectionPage> = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: "Projects — Austin Serb",
+  name: "Projects - Austin Serb",
   url: `${SITE_CONFIG.url}${SITE_SLUGS.projects}`,
   about: "Projects and case studies by Austin Serb (Next.js, React, TypeScript).",
   mainEntity: {
@@ -86,7 +86,7 @@ export const projectsSchema: WithContext<CollectionPage> = {
 export const profilePageSchema: WithContext<ProfilePage> = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  name: "About — Austin Serb",
+  name: "About - Austin Serb",
   url: `${SITE_CONFIG.url}/about`,
   mainEntity: {
     "@type": "Person",
@@ -167,7 +167,7 @@ const projectBreadcrumbSchema: WithContext<BreadcrumbList> = {
     {
       "@type": "WebSite",
       "@id": `${SITE_CONFIG.url}#website`,
-      name: "Austin Serb — Developer Portfolio",
+      name: "Austin Serb - Developer Portfolio",
       url: SITE_CONFIG.url,
       publisher: { "@id": `${SITE_CONFIG.url}#austin` },
       inLanguage: "en",
