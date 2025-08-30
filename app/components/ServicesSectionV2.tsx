@@ -24,6 +24,7 @@ const services = [
   { name: "Performance Optimization", src: "web" },
   { name: "UI/UX Design", src: "world" },
   { name: "Code Reviews", src: "planet" },
+  { name: "Advanced Motion", src: "cube" },
 ]
 
 const container: Variants = {
@@ -79,7 +80,7 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
   return (
     <section id="technologies" className={clsx("inside-container relative z-2 items-start justify-center md:flex-row md:items-center", className)}>
       {/*  LEFT COLUMN  */}
-      <div className="flex [flex:2_0_0px] flex-col gap-16">
+      <div className="flex h-full flex-col gap-16 max-md:w-full md:[flex:2_0_0px]">
         <AnimatedH2>
           Engineering <br />
           <span className="text-slate-500">Toolkit</span>
@@ -92,7 +93,7 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
           </Text>
 
           <MotionUl
-            className="grid w-full grid-cols-5 justify-items-center gap-8"
+            className="grid grid-cols-5 gap-8 max-[420px]:justify-items-center md:justify-items-center"
             variants={container}
             initial="hidden"
             whileInView="visible"
@@ -126,7 +127,7 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
         whileInView="visible"
         viewport={{ once: true, amount: 0.8 }}
         variants={container2}
-        className="grid [flex:1_0_0px] grid-cols-2 gap-12 md:grid-cols-1"
+        className="grid [flex:1_0_0px] grid-cols-2 gap-8 md:grid-cols-1"
       >
         {services.map(({ name, src }) => (
           <MotionLi key={name} variants={element2} className="flex items-center gap-3">
