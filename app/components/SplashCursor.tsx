@@ -1139,7 +1139,7 @@ export function SplashCursor({
       return ((value - min) % range) + min
     }
 
-    window.addEventListener("mousedown", (e) => {
+    window.addEventListener("pointerdown", (e) => {
       const pointer = pointers[0]
       const posX = scaleByPixelRatio(e.clientX)
       const posY = scaleByPixelRatio(e.clientY)
@@ -1147,16 +1147,16 @@ export function SplashCursor({
       clickSplat(pointer)
     })
 
-    function handleFirstMouseMove(e: MouseEvent) {
+    function handleFirstMouseMove(e: PointerEvent) {
       const pointer = pointers[0]
       const posX = scaleByPixelRatio(e.clientX)
       const posY = scaleByPixelRatio(e.clientY)
       const color = generateColor()
       updateFrame()
       updatePointerMoveData(pointer, posX, posY, color)
-      document.body.removeEventListener("mousemove", handleFirstMouseMove)
+      document.body.removeEventListener("pointermove", handleFirstMouseMove)
     }
-    document.body.addEventListener("mousemove", handleFirstMouseMove)
+    document.body.addEventListener("pointermove", handleFirstMouseMove)
 
     window.addEventListener("mousemove", (e) => {
       const pointer = pointers[0]

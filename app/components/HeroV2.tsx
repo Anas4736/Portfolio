@@ -1,3 +1,4 @@
+import { HeroScrollClick } from "./HeroScrollClick"
 import { ActivityDot } from "./ui/ActivityDot"
 import { AnimatedElement } from "./ui/AnimatedElement"
 import { CallToActionButton } from "./ui/CallToActionButton"
@@ -40,7 +41,8 @@ export const HeroV2 = () => {
           <CallToActionButton />
         </div>
         {/* Don't remove this span */}
-        <span data-stack-target-id className="xs:ml-[8%] [flex:1 _0_0px] xs:mt-20 mt-24 ml-[4%] h-1 w-2 sm:mt-11" />
+        <span data-stack-target-id className="xs:ml-[8%] [flex:1 _0_0px] xs:mt-20 mt-24 ml-[4%] h-1 w-2 sm:mt-11 xl:ml-[16%]" />
+        <HeroScrollClick />
 
         {/* subtle background ellipse */}
         <div className="pointer-events-none absolute inset-y-0 left-1/3 -z-1 hidden w-full bg-radial from-indigo-100 via-transparent to-transparent blur-3xl md:block" />

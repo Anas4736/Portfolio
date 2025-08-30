@@ -18,7 +18,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const rawOffsets = useOffset(ids)
   const isMobile = useIsMobile()
-  const responsiveScale = isMobile ? 0.34 : 0.7
+  const responsiveScale = isMobile ? 0.34 : 0.8
   const [, setReveal] = useUI<"true" | "false">("reveal", "false")
 
   const { scrollYProgress } = useScroll({
@@ -61,7 +61,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
         setReveal(inView ? "true" : "false")
       },
       {
-        threshold: isMobile ? 0.5 : 0.8,
+        threshold: isMobile ? 0.5 : 0.4,
       }
     )
     observer.observe(element)
@@ -70,7 +70,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
   }, [isMobile])
 
   return (
-    <section className={clsx("relative", className)} ref={ref}>
+    <section id="projects-grid" className={clsx("relative scroll-mt-36", className)} ref={ref}>
       <div className="relative z-4 grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 md:grid-rows-2">
         <AnimatedCard
           key={"react-zero-ui"}
