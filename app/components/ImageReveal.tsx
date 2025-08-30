@@ -10,7 +10,7 @@ interface ImageRevealProps extends Omit<ImageProps, "placeholder"> {
 
 export function ImageReveal({ className = "", ...img }: ImageRevealProps): ReactElement {
   return (
-    <div className={`relative max-w-96 overflow-hidden rounded-2xl ${className} `}>
+    <div className={`relative max-w-60 overflow-hidden rounded-2xl ${className} `}>
       <MotionDiv
         initial={{ x: "100%" }}
         whileInView={{ x: 0 }}

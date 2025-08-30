@@ -9,9 +9,11 @@ const tech = [
   { name: "React", src: "react" },
   { name: "Next", src: "next" },
   { name: "TypeScript", src: "typescript" },
+  { name: "Python", src: "python" },
   { name: "Express", src: "express" },
   { name: "OpenAI", src: "openai" },
   { name: "MongoDB", src: "mongodb" },
+  { name: "PostgreSQL", src: "postgresql" },
   { name: "Figma", src: "figma" },
   { name: "Motion", src: "motion" },
 ]
@@ -84,13 +86,13 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
         </AnimatedH2>
 
         {/* Tech Stack */}
-        <div>
+        <div className="w-full">
           <Text size="base" className="mb-8">
             My tech stack
           </Text>
 
           <MotionUl
-            className="flex flex-wrap gap-8"
+            className="grid w-full grid-cols-5 justify-items-center gap-8"
             variants={container}
             initial="hidden"
             whileInView="visible"
