@@ -12,6 +12,7 @@ import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { breadcrumbSchema, contactPageSchema, profilePageSchema } from "@/config/schemas"
+import Script from "next/script"
 
 const switzer = localFont({
   src: "./fonts/Switzer-Variable.woff2",
@@ -63,7 +64,26 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             <FooterV2 />
           </div>
         </MotionWrapper>
-        {process.env.NODE_ENV === "production" && <Analytics />}
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <Script
+              id="ms-clarity"
+              strategy="lazyOnload"
+              dangerouslySetInnerHTML={{
+                __html: `
+        (function(c,l,a,r,i,t,y){
+          // bail if something polluted window.clarity
+          if (c[a] && typeof c[a] !== "function") { try { delete c[a]; } catch(_) {} }
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "t4bi2igt7h");
+      `,
+              }}
+            />
+            <Analytics />
+          </>
+        )}
       </body>
     </html>
   )
