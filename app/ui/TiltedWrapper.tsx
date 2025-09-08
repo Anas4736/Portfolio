@@ -87,7 +87,7 @@ export function TiltedWrapper({
       onMouseLeave={handleMouseLeave}
     >
       <MotionDiv
-        className={`relative h-full xxs:w-full will-change-transform [transform-style:preserve-3d] ${className}`}
+        className={`xxs:w-full relative h-full will-change-transform [transform-style:preserve-3d] ${className}`}
         style={{
           rotateX,
           rotateY,

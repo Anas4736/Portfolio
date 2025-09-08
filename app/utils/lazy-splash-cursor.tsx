@@ -34,7 +34,7 @@ export const TiltedWrapper = /*#__PURE__*/ dynamic(() => import("../ui/TiltedWra
 export function LazyTiltedWrapper({ children, ...props }: TiltedWrapperProps) {
   const isTouch = useTouch()
   return isTouch ? (
-    <div className="h-full w-full transform-gpu [box-shadow:var(--button-shadow)] rounded-xl">{children}</div>
+    <div className="h-full w-full transform-gpu rounded-xl [box-shadow:var(--button-shadow)]">{children}</div>
   ) : (
     <TiltedWrapper {...props}>{children}</TiltedWrapper>
   )

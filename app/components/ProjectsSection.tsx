@@ -13,6 +13,7 @@ export const ProjectsSection: React.FC = () => {
         <AnimatedText
           text="Latest Projects"
           margin={200}
+          once={true}
           className="inline-block text-4xl leading-9 tracking-tighter whitespace-nowrap text-white md:text-5xl md:leading-12 lg:text-6xl"
         />
       </div>

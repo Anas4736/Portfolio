@@ -58,7 +58,7 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
             </p>
 
             {/* signature */}
-            <Image src={signature} alt="Austin Serb Signature" width={90} height={45} className="mt-6 -ml-3 -rotate-6 relative" />
+            <Image src={signature} alt="Austin Serb Signature" width={90} height={45} className="relative mt-6 -ml-3 -rotate-6" />
           </Typography>
         </div>
       </div>

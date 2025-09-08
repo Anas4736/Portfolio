@@ -27,7 +27,7 @@ export const HeroV2 = () => {
             </AnimatedElement>
           </h1>
 
-          <AnimatedElement element="p" delay={0.6} className="max-w-xs text-sm leading-tight tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base">
+          <AnimatedElement element="p" delay={0.6} className="max-w-xs text-sm leading-snug tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base">
             <strong className="font-semibold text-slate-900">Frontend-focused full stack developer.</strong> React & Next.js specialist. Creator of{" "}
             <a href="https://github.com/react-zero-ui" target="_blank" rel="noopener" className="font-semibold text-slate-900">
               React-Zero-UI

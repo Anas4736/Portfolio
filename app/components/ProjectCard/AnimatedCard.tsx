@@ -39,7 +39,7 @@ export function AnimatedCard({ src, alt, offset, color, type, gridId, progress, 
       target={href ? "_blank" : undefined}
       href={href ?? `${SITE_SLUGS.projects}/${gridId}`}
       data-grid-id={gridId}
-      className="reveal-false:pointer-events-none will-change-transform"
+      className="reveal-false:pointer-events-none"
     >
       <div
         ref={ref}
@@ -51,7 +51,7 @@ export function AnimatedCard({ src, alt, offset, color, type, gridId, progress, 
             "--sc": `${offset.s}`,
           } as React.CSSProperties
         }
-        className={clsx("group relative h-full w-full transform-gpu opacity-1 contain-content")}
+        className={clsx("group relative h-full w-full transform-gpu opacity-1 will-change-[transform,opacity] contain-content backface-hidden")}
       >
         <Card src={src} alt={alt} color={color} type={type} text={dataText} />
       </div>

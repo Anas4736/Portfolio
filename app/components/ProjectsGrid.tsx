@@ -18,6 +18,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
   const rawOffsets = useOffset(ids)
   const isMobile = useIsMobile()
+  const isSmallScreen = useIsMobile(576)
   const responsiveScale = isMobile ? 0.34 : 0.8
   const [, setReveal] = useUI<"true" | "false">("reveal", "false")
 
@@ -25,7 +26,8 @@ export function ProjectsGrid({ className }: { className?: string }) {
     offset: isMobile ? ["start start", "10% start"] : ["start start", "15% start"],
   })
   const stiffness = isMobile ? 120 : 220
-  const damping = isMobile ? 40 : 90
+  const damping = isMobile ? 50 : 90
+
   const progress = useSpring(scrollYProgress, { stiffness, damping })
 
   const OFFSET_TUNING: Record<string, Partial<HeroOffset>> = {
@@ -51,24 +53,18 @@ export function ProjectsGrid({ className }: { className?: string }) {
     })
   )
 
+  const triggerProgress = isMobile ? (isSmallScreen ? 0.15 : 0.2) : 0.5
   useEffect(() => {
-    const element = ref.current
-    if (!element) return
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        const inView = entry.isIntersecting
-        setReveal(inView ? "true" : "false")
-      },
-      {
-        threshold: isMobile ? 0.5 : 0.4,
+    const unsubscribe = progress.on("change", (latest) => {
+      if (latest >= triggerProgress) {
+        setReveal("true") // Reveal ON
+      } else {
+        setReveal("false") // Reveal OFF
       }
-    )
-    observer.observe(element)
-    return () => observer.disconnect()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile])
+    })
 
+    return unsubscribe
+  }, [progress, setReveal, triggerProgress])
   return (
     <section id="projects-grid" className={clsx("relative scroll-mt-36", className)} ref={ref}>
       <div className="relative z-4 grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 md:grid-rows-2">
@@ -85,16 +81,17 @@ export function ProjectsGrid({ className }: { className?: string }) {
           dataText="View on GitHub"
         />
         <AnimatedCard
-          key={"IAO"}
-          src={iaoPreview}
-          alt={"IAO Preview"}
-          offset={offsets["iron-and-oak"]}
-          gridId="iron-and-oak"
-          color="#13739C"
-          type="Private Security"
+          key="Bespoke"
+          src={bespokePreview}
+          alt={"Bespoke Preview"}
+          offset={offsets["bespoke"]}
+          gridId="bespoke"
+          color="#024EFC"
+          type="Automotive Styling"
           progress={progress}
           dataText="View Case Study"
         />
+
         <AnimatedCard
           key="Automedics"
           src={automedicsPreview}
@@ -107,13 +104,13 @@ export function ProjectsGrid({ className }: { className?: string }) {
           dataText="View Case Study"
         />
         <AnimatedCard
-          key="Bespoke"
-          src={bespokePreview}
-          alt={"Bespoke Preview"}
-          offset={offsets["bespoke"]}
-          gridId="bespoke"
-          color="#024EFC"
-          type="Automotive Styling"
+          key={"IAO"}
+          src={iaoPreview}
+          alt={"IAO Preview"}
+          offset={offsets["iron-and-oak"]}
+          gridId="iron-and-oak"
+          color="#13739C"
+          type="Private Security"
           progress={progress}
           dataText="View Case Study"
         />

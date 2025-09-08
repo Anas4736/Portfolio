@@ -7,10 +7,23 @@ import { Metadata } from "next"
 import { SITE_SLUGS } from "@/config/siteConfig"
 
 export const metadata: Metadata = {
-  title: "Austin Serb - Developer Portfolio",
+  title: "Web Developer Portfolio | Austin Serb | React & Next.js",
   description:
-    "Portfolio of Austin Serb, Seattle-based full-stack engineer. Creator of React Zero-UI. Ships production Next.js + TypeScript systems. Projects & contact.",
-  keywords: ["Austin Serb", "Serbyte", "React Zero-UI", "Next.js", "React", "TypeScript", "Full-Stack Engineer", "Seattle"],
+    "Explore the web developer portfolio of Austin Serb, a full-stack engineer building fast, modern web applications. See what a professional coding portfolio looks like, featuring projects in React, Next.js, and the custom-built React-Zero-UI library.",
+
+  keywords: [
+    "Web Developer Portfolio",
+    "Austin Serb",
+    "Serbyte",
+    "React Zero-UI",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Full-Stack Engineer",
+    "Seattle",
+
+    "React Developer Portfolio",
+  ],
   authors: [{ name: "Austin Serb" }],
   creator: "Austin Serb",
   alternates: {
@@ -21,12 +34,13 @@ export const metadata: Metadata = {
 const PortfolioPage: React.FC = () => {
   return (
     <main className="overflow-hidden">
-      <HeroV2 /> {/* Rewritten for job seeking */}
+      <HeroV2 />
       <div className="border-b border-gray-200" />
-      <ProjectsSection /> {/* Expanded with case studies */}
-      <AboutSectionV2 /> {/* Technical journey focus */}
-      <ServicesSectionV2 /> {/* NEW: Technical skills showcase */}
+      <ProjectsSection />
+      <AboutSectionV2 />
+      <ServicesSectionV2 />
       <RecruiterContact />
+      {/* <FAQSection /> */}
     </main>
   )
 }
