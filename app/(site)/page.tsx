@@ -4,10 +4,12 @@ import { AboutSectionV2 } from "../components/AboutSectionV2"
 import { ServicesSectionV2 } from "../components/ServicesSectionV2"
 import { RecruiterContact } from "../components/RecruiterContact"
 import { Metadata } from "next"
-import { SITE_SLUGS } from "@/config/siteConfig"
+import { SITE_CONFIG, SITE_SLUGS } from "@/config/siteConfig"
+import { homeGraph } from "@/config/schemas"
+import Script from "next/script"
 
 export const metadata: Metadata = {
-  title: "Austin Serb - Web Developer Portfolio | React & Next.js",
+  title: SITE_CONFIG.title,
   description:
     "Explore the web developer portfolio of Austin Serb, a full-stack engineer building fast, modern web applications. See what a professional coding portfolio looks like, featuring projects in React, Next.js, and the custom-built React-Zero-UI library.",
 
@@ -34,6 +36,13 @@ export const metadata: Metadata = {
 const PortfolioPage: React.FC = () => {
   return (
     <main className="overflow-hidden">
+      <Script
+        id="id-site-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(homeGraph),
+        }}
+      />
       <HeroV2 />
       <div className="border-b border-gray-200" />
       <ProjectsSection />

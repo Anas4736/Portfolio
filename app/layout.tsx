@@ -11,7 +11,7 @@ import { ViewTransitions } from "./utils/ViewTransition"
 import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
-import { breadcrumbSchema, contactPageSchema, profilePageSchema } from "@/config/schemas"
+import { siteGraph } from "@/config/schemas"
 import Script from "next/script"
 
 const switzer = localFont({
@@ -44,21 +44,10 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             {children}
 
             <script
+              id="id-site-schema"
               type="application/ld+json"
               dangerouslySetInnerHTML={{
-                __html: JSON.stringify(contactPageSchema),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(profilePageSchema),
-              }}
-            />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(breadcrumbSchema),
+                __html: JSON.stringify(siteGraph),
               }}
             />
             <FooterV2 />

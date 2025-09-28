@@ -39,12 +39,14 @@ import { ApproachTabsImage } from "../components/ProjectSection/ApproachTabsImag
 //     }
 //   }
 // }
+
 export interface ProjectHeroProps {
   title: string | React.ReactNode
   client: string
   year: string
   description: string | React.ReactNode
   categories: string[]
+  // link to the client's website
   link: string
 }
 
@@ -62,6 +64,7 @@ export type ProjectData = {
   results: AnalyticCardProps[]
   phases: Phase[]
   review: ReviewProps
+  slug: string
 }
 
 export const bespoke: ProjectData = {
@@ -80,6 +83,7 @@ export const bespoke: ProjectData = {
     categories: ["SEO", "Web Design", "Web Development", "Photography"],
     link: "https://www.bespokeauto.org/",
   },
+  slug: "bespoke",
   beforeAfter: {
     heroBefore: heroBefore,
     beforeAltText: "Bespoke Tint & PPF Before",
@@ -212,6 +216,8 @@ export const automedicsKirkland: ProjectData = {
     categories: ["Next.js", "Web Design", "Local SEO", "Copywriting"],
     link: "https://www.automedicskirkland.com",
   },
+  slug: "automedics",
+
   beforeAfter: {
     heroBefore: heroBeforeAutomedics,
     beforeAltText: "Automedics Kirkland Before",
@@ -319,6 +325,7 @@ export const iao: ProjectData = {
     categories: ["Next.js", "Web Design", "Web Development", "Storytelling"],
     link: "https://iao-seattle.vercel.app/?src=serbyte",
   },
+  slug: "iron-and-oak",
   beforeAfter: {
     heroBefore: heroBeforeIao,
     heroBeforeMobile: heroBeforeMobileIao,

@@ -6,10 +6,19 @@ import { LargeReview } from "../LargeReview"
 import { MoreProjectsSection } from "./MoreProjectsSection"
 import { ProjectData } from "../../data/project-data"
 import { RecruiterContact } from "../RecruiterContact"
+import Script from "next/script"
+import { buildProjectGraphMinimal } from "@/config/schemas"
 
 const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData }) => {
   return (
     <main className="overflow-hidden">
+      <Script
+        id="id-project-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(buildProjectGraphMinimal(projectData.slug, projectData)),
+        }}
+      />
       <ProjectHero {...projectData.hero} />
       {projectData.beforeAfter && (
         <BeforeAfterSection

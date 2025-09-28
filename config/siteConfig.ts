@@ -1,9 +1,9 @@
 export const DOMAIN_URL = "https://www.austinserb.com"
 
 export const SITE_CONFIG = {
-  title: "Austin Serb",
+  title: "Austin Serb - Web Developer Portfolio | React & Next.js",
   description: "Portfolio of Austin Serb, Seattle-based full-stack engineer. Specializing in Next.js, React, TypeScript, and Tailwind CSS.",
-  url: DOMAIN_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL ?? "http://localhost:3000",
+  url: DOMAIN_URL ?? "http://localhost:3000",
   siteName: "Austin Serb",
   keywords: ["Austin Serb", "Serbyte", "React Zero-UI", "Next.js", "React", "TypeScript", "Full-Stack Engineer", "Seattle"],
   ogImage: "/assets/bg-home-poster-optimized.webp",
