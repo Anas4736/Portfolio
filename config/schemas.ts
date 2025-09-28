@@ -23,7 +23,7 @@ const projectsData: ProjectItem[] = [
     url: SITE_SLUGS.projectLinks.bespoke,
     date: "2025-03-11",
     description: "Automotive Styling Website",
-    isExternal: false,
+    isExternal: true,
   },
   {
     name: "Vets Choice Insurance",
@@ -44,14 +44,14 @@ const projectsData: ProjectItem[] = [
     url: SITE_SLUGS.projectLinks.automedics,
     date: "2024-12-02",
     description: "Automotive Repair Website",
-    isExternal: false,
+    isExternal: true,
   },
   {
     name: "Iron & Oak",
     url: SITE_SLUGS.projectLinks.iao,
     date: "2024-06-15",
     description: "Private Security Website",
-    isExternal: false,
+    isExternal: true,
   },
   {
     name: "Entitled",
@@ -87,10 +87,10 @@ export const profilePageSchema: WithContext<ProfilePage> = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
   name: "About - Austin Serb",
-  url: `${SITE_CONFIG.url}/about`,
+  url: `${SITE_CONFIG.url}/#about`,
   mainEntity: {
     "@type": "Person",
-    "@id": `${SITE_CONFIG.url}/#austin`,
+    "@id": `${SITE_CONFIG.url}/#about`,
     name: "Austin Serb",
     url: SITE_CONFIG.url,
     jobTitle: "Full-Stack Engineer",
@@ -122,17 +122,6 @@ export const breadcrumbSchema: WithContext<BreadcrumbList> = {
     { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_CONFIG.url}${SITE_SLUGS.projects}` },
   ],
 }
-
-// Function to generate project-specific breadcrumb schema
-export const createProjectBreadcrumbSchema = (projectName: string, projectUrl: string): WithContext<BreadcrumbList> => ({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: SITE_CONFIG.url },
-    { "@type": "ListItem", position: 2, name: "Projects", item: `${SITE_CONFIG.url}${SITE_SLUGS.projects}` },
-    { "@type": "ListItem", position: 3, name: projectName, item: `${SITE_CONFIG.url}${projectUrl}` },
-  ],
-})
 
 const projectBreadcrumbSchema: WithContext<BreadcrumbList> = {
   "@context": "https://schema.org",

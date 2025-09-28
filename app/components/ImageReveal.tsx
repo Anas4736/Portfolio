@@ -33,6 +33,7 @@ export function ImageReveal({ className = "", ...img }: ImageRevealProps): React
       >
         <Socials socialLinks={socialLinks} className="absolute right-4 bottom-4 z-5" iconClassName="md:opacity-85 hover:opacity-100" />
         <Image
+          id="headshot"
           {...img}
           fill
           alt="Austin Serb Profile Photo"

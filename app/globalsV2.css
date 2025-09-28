@@ -35,6 +35,8 @@ html {
 
 :root {
   --gradient: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  --gradient-alt: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+
   --button-shadow:
     0px 2px 2px -1.5px rgba(0, 0, 0, 0.32), 0px 4.4px 4.4px -2.25px rgba(0, 0, 0, 0.3), 0px 9.8px 9.8px -3px rgba(0, 0, 0, 0.25),
     0px 25px 25px -3.75px rgba(0, 0, 0, 0.11), 0px -5px 5px -3.75px rgba(0, 0, 0, 0.11);
@@ -194,6 +196,29 @@ html {
       background-size: 200% 200%;
       background-position: 100% 100%;
       background-image: var(--gradient);
+    }
+
+    &:hover {
+      &::before {
+        @apply translate-x-0 opacity-30!;
+        animation: fill-from-left 5s ease-out infinite;
+      }
+    }
+    &.active {
+      &::before {
+        @apply translate-x-0 opacity-70;
+        animation: fill-from-left 5s ease-out infinite;
+      }
+    }
+  }
+
+  .bubble-hover-cta {
+    @apply relative inline-block overflow-hidden rounded-full text-nowrap;
+    &::before {
+      @apply pointer-events-none absolute inset-0 z-[-1] -translate-x-full rounded-full opacity-0 blur-[1px] transition-all duration-300 will-change-transform content-[''];
+      background-size: 200% 200%;
+      background-position: 100% 100%;
+      background-image: var(--gradient-alt);
     }
 
     &:hover {

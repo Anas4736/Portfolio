@@ -1,7 +1,7 @@
 import Image from "next/image"
 import clsx from "clsx"
 import profilePhoto from "../images/profile.webp"
-import signature from "../images/signature.webp"
+import signature from "../images/signature.png"
 import { Text, Typography } from "../ui/Elements"
 import { AnimatedH2 } from "./ui/AnimatedH2"
 import { ImageReveal } from "./ImageReveal"
@@ -58,7 +58,7 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
             </p>
 
             {/* signature */}
-            <Image src={signature} alt="Austin Serb Signature" width={90} height={45} className="relative mt-6 -ml-3 -rotate-6" />
+            <Image src={signature} alt="Austin Serb Signature" className="relative mt-6 -ml-3 h-12 w-auto" />
           </Typography>
         </div>
       </div>

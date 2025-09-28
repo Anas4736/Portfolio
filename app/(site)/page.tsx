@@ -7,13 +7,13 @@ import { Metadata } from "next"
 import { SITE_SLUGS } from "@/config/siteConfig"
 
 export const metadata: Metadata = {
-  title: "Web Developer Portfolio | Austin Serb | React & Next.js",
+  title: "Austin Serb - Web Developer Portfolio | React & Next.js",
   description:
     "Explore the web developer portfolio of Austin Serb, a full-stack engineer building fast, modern web applications. See what a professional coding portfolio looks like, featuring projects in React, Next.js, and the custom-built React-Zero-UI library.",
 
   keywords: [
-    "Web Developer Portfolio",
     "Austin Serb",
+    "Web Developer Portfolio",
     "Serbyte",
     "React Zero-UI",
     "Next.js",

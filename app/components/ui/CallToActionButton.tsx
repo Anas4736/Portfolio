@@ -66,8 +66,9 @@ export const CallToActionButton = () => {
         animate="animate"
         whileHover="hover"
         variants={buttonVariants}
-        className="group bubble-hover active inline-flex w-max items-center gap-2 rounded-full bg-black px-3 py-2.5 text-base font-medium tracking-tight text-white shadow-xl shadow-black/20"
+        className="group bubble-hover-cta active relative z-1 inline-flex w-max items-center gap-2 rounded-full bg-black px-3 py-2.5 text-base font-medium tracking-tight text-white shadow-xl shadow-black/20"
       >
+        <div className="pointer-events-none absolute inset-0.5 -z-1 rounded-full [background-image:url('/assets/framer-noise.png')] [background-size:164px] bg-repeat opacity-12" />
         <div className="relative flex items-center gap-1">
           {/* Avatar */}
           <div className="relative h-7 w-7 rounded-full">
