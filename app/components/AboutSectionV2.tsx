@@ -1,7 +1,5 @@
 import Image from "next/image"
 import clsx from "clsx"
-import profilePhoto from "../images/profile.webp"
-import signature from "../images/signature.png"
 import { Text, Typography } from "../ui/Elements"
 import { AnimatedH2 } from "./ui/AnimatedH2"
 import { ImageReveal } from "./ImageReveal"
