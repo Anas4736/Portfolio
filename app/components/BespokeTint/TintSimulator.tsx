@@ -2,7 +2,6 @@
 import { useState, useMemo, memo } from "react"
 import { MotionDiv } from "@/app/utils/lazy-ui"
 import Image from "next/image"
-import teslaNoTint from "@/public/assets/tesla-no-tint.jpg"
 import tesla05 from "@/public/assets/tesla-05-tint.jpg"
 import clsx from "clsx"
 
@@ -11,7 +10,7 @@ const TintImages = memo(({ opacity }: { opacity: number }) => {
   return (
     <div className="relative h-[60vw] max-h-[400px] w-full rounded-2xl border border-neutral-300 bg-white lg:h-screen">
       {/* No Tint Image (base) */}
-      <Image src="/profile.JPG" alt="No Window Tint" fill className="object-contain" sizes="(max-width: 768px) 90vw, (max-width: 1023px) 50vw" />
+      <Image src="" alt="No Window Tint" fill className="object-contain" sizes="(max-width: 768px) 90vw, (max-width: 1023px) 50vw" />
 
       {/* 5% Tint Image (opacity controlled by scaled slider) */}
       <MotionDiv initial={{ opacity: 0 }} animate={{ opacity }} transition={{ ease: "easeIn", delay: 0.2 }} className="absolute inset-0">
