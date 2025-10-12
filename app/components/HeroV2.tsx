@@ -14,12 +14,12 @@ export const HeroV2 = () => {
             className="z-2 inline-flex items-center gap-2 self-start rounded-full border border-gray-100 bg-white px-3 py-2 text-xs font-medium shadow-lg"
           >
             <ActivityDot />
-            Seattle, WA
+            Meerut, UP
           </AnimatedElement>
 
           <h1 className="xs:text-5xl relative z-5 text-4xl leading-[1] font-medium tracking-tight text-slate-900 sm:text-6xl lg:text-7xl">
             <AnimatedElement element="span" offsetPx={20} fadeDirection="left" className="inline-block">
-              Austin Serb
+              Mohd Anas
             </AnimatedElement>{" "}
             <br />
             <AnimatedElement element="span" offsetPx={40} delay={0.2} fadeDirection="top" className="inline-block"></AnimatedElement>
@@ -29,13 +29,16 @@ export const HeroV2 = () => {
           </h1>
 
           <AnimatedElement element="p" delay={0.6} className="max-w-xs text-sm leading-snug tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base">
-            <strong className="font-semibold text-slate-900">Frontend-focused full stack developer.</strong> React & Next.js specialist. Creator of{" "}
-            <a href="https://github.com/react-zero-ui" target="_blank" rel="noopener" className="font-semibold text-slate-900">
-              React-Zero-UI
+            <strong className="font-semibold text-slate-900">Full Stack Engineer.</strong> React, Node.js and MongoDB specialist. Creator of{" "}
+            <a href="https://github.com/Anas4736/Quick_GPT" target="_blank" rel="noopener" className="font-semibold text-slate-900">
+              QuickGPT
             </a>
-            . Founder of{" "}
-            <a href="https://www.serbyte.net/" target="_blank" rel="noopener" className="font-semibold text-slate-900">
-              Serbyte Development
+            ,&nbsp;
+            <a href="https://github.com/Anas4736/WanderLust-Project" target="_blank" rel="noopener" className="font-semibold text-slate-900">
+              Wanderlust &nbsp;
+            </a>and &nbsp;
+            <a href="https://github.com/Anas4736/Trading-Platform" target="_blank" rel="noopener" className="font-semibold text-slate-900">
+              Zerodha.
             </a>
           </AnimatedElement>
 

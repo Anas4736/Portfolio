@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+    domains: [
+      'github.com',
+      '/Screenshot 2025-10-07 164225 (2).png',
+      '/Screenshot 2025-10-11 135252.png',
+      '/Screenshot 2025-10-11 135532.png',
+      '/Screenshot 2025-10-11 135713.png', // <-- Add this line to allow loading images from GitHub
+      // If you have other external image sources, list them here too
+      // 'example.com',
+    ],
   },
 }
 

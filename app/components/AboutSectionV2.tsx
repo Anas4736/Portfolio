@@ -15,7 +15,7 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
         <AnimatedH2>
           <span className="text-slate-500">About</span>
           <br />
-          Austin Serb
+          Mohd Anas
         </AnimatedH2>
         <div className="flex flex-col-reverse gap-12 md:flex-row md:gap-16">
           {/* ---------------- left column ---------------- */}
@@ -23,7 +23,7 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
           <div className="flex [flex:1_0_0px] flex-col gap-6">
             {/* portrait + overlay icons */}
 
-            <ImageReveal src={profilePhoto} alt="Austin Serb" className="custom-shadow aspect-[4/4.5]" />
+            <ImageReveal src="/profile.jpg" alt="Mohd Anas" className="custom-shadow aspect-[4/4.5]" />
 
             {/* name + role */}
             <MotionDiv
@@ -32,34 +32,41 @@ export const AboutSectionV2 = ({ className = "" }: { className?: string }) => {
               viewport={{ once: true, margin: "0px 0px -100px 0px" }}
             >
               <Text as="h2" size="lg" className="font-medium">
-                Austin Serb
+                Mohd Anas
               </Text>
-              <p className="text-sm text-gray-500">Full-Stack Engineer (Next.js + TypeScript)</p>
+              <p className="text-sm text-gray-500">Full-Stack Engineer</p>
             </MotionDiv>
           </div>
           {/* ---------------- right column ---------------- */}
           <Typography as="article" size="lg" className="[flex:1.5_0_0px] space-y-8 text-slate-500">
             <p>
-              <strong className="font-semibold text-slate-900">I build production systems and invent tools</strong> when the platform gets in the way. I created
-              <a href="https://github.com/react-zero-ui" target="_blank" rel="noopener">
-                {" "}
-                React Zero UI
+              <strong className="font-semibold text-slate-900">I’m a Full Stack Engineer</strong> who loves building real-world web applications that blend performance with clean design.
+              I’ve created full-stack projects like a{" "}
+              <a href="https://github.com/Anas4736" target="_blank" rel="noopener" className="text-slate-900">
+                QuickGPT LLM-powered AI assistant
               </a>
-              . A ~350B micro-library that updates UI by flipping data-* attributes, eliminating React re-renders for UI state. This site runs on it.
+              , an Wanderlust booking app, and a Zerodha trading platform — all powered by the MERN stack.
             </p>
 
             <p>
-              <strong className="font-semibold text-slate-900">I ship v1s in weeks and iterate in days</strong>. Leveraging tools server-first React, typed
-              APIs, background jobs, CI/CD, and observability. Small PRs, rapid feedback, no ceremony.
+              <strong className="font-semibold text-slate-900">I build, deploy, and iterate fast</strong> — shipping MVPs in weeks and refining them in days.
+              I focus on modern tools like React, Express, MongoDB, Node.js, REST APIs, and CI/CD to deliver efficient, scalable products.
             </p>
+
             <p>
-              <strong className="font-semibold text-slate-900">My core philosophy is simplicity</strong>. if complexity balloons, I delete it and design the
-              simpler path.
+              <strong className="font-semibold text-slate-900">My development philosophy is simplicity</strong> — if complexity grows, I refactor and design a cleaner, more efficient path.
+              I believe great products come from small, thoughtful improvements and consistent execution.
             </p>
 
             {/* signature */}
-            <Image src={signature} alt="Austin Serb Signature" className="relative mt-6 -ml-3 h-12 w-auto" />
-          </Typography>
+<Image
+  src="/Sign.png"
+  alt="Mohd Anas Signature"
+  width={250} // <--- ADD THE ACTUAL WIDTH OF YOUR IMAGE HERE
+  height={50} // <--- ADD THE ACTUAL HEIGHT OF YOUR IMAGE HERE
+  className="relative mt-6 -ml-3"
+/>          </Typography>
+
         </div>
       </div>
     </section>

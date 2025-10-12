@@ -21,11 +21,11 @@ export const RecruiterContact: React.FC = () => {
         >
           <div className="flex w-fit items-center gap-3 p-2 max-lg:justify-center">
             <div className="relative h-12 w-12 overflow-hidden rounded-full ring-4 ring-slate-200">
-              <Image src={profilePhoto} alt="Austin Serb" fill sizes="80px" className="object-cover" />
+              <Image src="/profile.jpg" alt="Austin Serb" fill sizes="80px" className="object-cover" />
             </div>
             <div className="flex flex-col items-start text-sm whitespace-nowrap text-slate-700">
-              <h2 className="font-medium text-slate-900">Austin Serb</h2>
-              <p className="text-slate-500">Full-Stack - Frontend Focused</p>
+              <h2 className="font-medium text-slate-900">Mohd Anas</h2>
+              <p className="text-slate-500">Full-Stack Engineer</p>
             </div>
           </div>
 
@@ -37,8 +37,8 @@ export const RecruiterContact: React.FC = () => {
               <span className="text-slate-500">Let&apos;s chat.</span>
             </H3>
             <Text className="max-w-2xl text-center text-balance">
-              I build fast, accessible web apps with React, Next.js, and TypeScript. I&apos;m looking for teams that value product quality, performance, and
-              thoughtful UX.
+              I build fast, accessible web apps using React, Node.js, and MongoDB.  
+Let’s create something impactful together.
             </Text>
           </div>
 
@@ -48,11 +48,11 @@ export const RecruiterContact: React.FC = () => {
               Email me
             </BlackButtonLink>
 
-            <WhiteButtonLink href={SITE_NAP.profiles.linkedIn}>
+            <WhiteButtonLink href="https://www.linkedin.com/in/mohd-anas-120bb22a3">
               <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px]" />
               LinkedIn
             </WhiteButtonLink>
-            <WhiteButtonLink href={SITE_NAP.profiles.github}>
+            <WhiteButtonLink href="https://github.com/Anas4736">
               <Icon name="github" height={18} width={18} className="h-[18px] w-[18px]" />
               GitHub
             </WhiteButtonLink>

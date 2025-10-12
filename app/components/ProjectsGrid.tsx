@@ -70,49 +70,52 @@ export function ProjectsGrid({ className }: { className?: string }) {
       <div className="relative z-4 grid grid-cols-1 grid-rows-1 gap-4 md:grid-cols-2 md:grid-rows-2">
         <AnimatedCard
           key={"react-zero-ui"}
-          src={reactZeroUIPreview}
-          alt={"React-Zero-UI - Preview"}
+          src="/Screenshot 2025-10-07 164225 (2).png"
+          alt={"QuickGPT - Preview"}
           offset={offsets["react-zero-ui"]}
           gridId="react-zero-ui"
           color="#3B06D1"
-          type="Zero Re-Render State Library"
+          type="LLM-powered AI assistant"
           progress={progress}
-          href={externalLinks.zeroCore}
+          href= "https://github.com/Anas4736/Quick_GPT"
           dataText="View on GitHub"
         />
         <AnimatedCard
           key="Bespoke"
-          src={bespokePreview}
-          alt={"Bespoke Preview"}
+          src="/Screenshot 2025-10-11 135252.png"
+          alt={"Zerodha - Preview"}
           offset={offsets["bespoke"]}
           gridId="bespoke"
           color="#024EFC"
-          type="Automotive Styling"
+          type="Investment & Portfolio Dashboard"
           progress={progress}
-          dataText="View Case Study"
+          href="https://github.com/Anas4736/Trading-Platform"
+          dataText="View on GitHub"
         />
 
         <AnimatedCard
           key="Automedics"
-          src={automedicsPreview}
-          alt={"Automedics Preview"}
+          src="/Screenshot 2025-10-11 210930.png"
+          alt={"Sabzi-Source - Preview"}
           offset={offsets["automedics"]}
           gridId="automedics"
           color="#DA961A"
-          type="Automotive Repair"
+          type="Local Supply Chain Platform"
           progress={progress}
-          dataText="View Case Study"
+          href="https://github.com/Anas4736/sabzi-source"
+          dataText="View on GitHub"
         />
         <AnimatedCard
           key={"IAO"}
-          src={iaoPreview}
-          alt={"IAO Preview"}
+          src="/Screenshot 2025-10-11 135713.png"
+          alt={"Wanderlust - Preview"}
           offset={offsets["iron-and-oak"]}
           gridId="iron-and-oak"
           color="#13739C"
-          type="Private Security"
+          type="Travel & Stay Booking Platform"
           progress={progress}
-          dataText="View Case Study"
+          href="https://github.com/Anas4736/WanderLust-Project"
+          dataText="View on GitHub"
         />
       </div>
     </section>

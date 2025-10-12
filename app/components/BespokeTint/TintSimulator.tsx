@@ -11,7 +11,7 @@ const TintImages = memo(({ opacity }: { opacity: number }) => {
   return (
     <div className="relative h-[60vw] max-h-[400px] w-full rounded-2xl border border-neutral-300 bg-white lg:h-screen">
       {/* No Tint Image (base) */}
-      <Image src={teslaNoTint} alt="No Window Tint" fill className="object-contain" sizes="(max-width: 768px) 90vw, (max-width: 1023px) 50vw" />
+      <Image src="/profile.JPG" alt="No Window Tint" fill className="object-contain" sizes="(max-width: 768px) 90vw, (max-width: 1023px) 50vw" />
 
       {/* 5% Tint Image (opacity controlled by scaled slider) */}
       <MotionDiv initial={{ opacity: 0 }} animate={{ opacity }} transition={{ ease: "easeIn", delay: 0.2 }} className="absolute inset-0">

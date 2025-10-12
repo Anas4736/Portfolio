@@ -9,7 +9,7 @@ export const Card = ({
   reveal = true,
   text = "View Project",
 }: {
-  src: StaticImageData
+  src: string | StaticImageData
   alt: string
   color?: string
   type?: string
@@ -39,7 +39,7 @@ export const Card = ({
             {text}
           </span>
         </span>
-        <Image className="h-full w-full bg-gray-200" src={src} alt={alt} priority decoding="async" />
+        <Image className="h-full w-full bg-gray-200" width={200} height={500} src={src} alt={alt} priority decoding="async" />
       </div>
     </div>
   )

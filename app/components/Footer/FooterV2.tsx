@@ -8,20 +8,12 @@ const words: [string, string, string, string] = ["build", "create", "design", "m
 
 export const socialLinks = [
   {
-    href: SITE_NAP.profiles.linkedIn,
+    href: "https://www.linkedin.com/in/mohd-anas-120bb22a3",
     icon: "linkedin",
   },
   {
-    href: SITE_NAP.profiles.facebook,
-    icon: "facebook",
-  },
-  {
-    href: SITE_NAP.profiles.github,
+    href: "https://github.com/Anas4736",
     icon: "github",
-  },
-  {
-    href: SITE_NAP.profiles.x,
-    icon: "x",
   },
 ]
 
@@ -40,7 +32,7 @@ export const FooterV2: React.FC = () => {
             <li className="flex flex-col gap-1 md:gap-2">
               <span className="text-gray-500">Email</span>
               <Link href="mailto:austin@serbyte.net" className="w-fit text-sm transition-colors duration-200 hover:text-gray-300">
-                austin@serbyte.net
+                mohdanas47369@gmail.com
               </Link>
             </li>
             {/* <li className="flex flex-col gap-1 md:gap-2">
@@ -73,7 +65,7 @@ export const FooterV2: React.FC = () => {
         <div className="flex flex-col-reverse justify-between gap-2 text-xs text-nowrap md:flex-row">
           <div className="flex items-center gap-5.5 max-sm:flex-wrap">
             <h3>
-              <span className="text-[#b8b8b8]">Based in </span> Seattle, Washington, USA
+              <span className="text-[#b8b8b8]">Based in </span> Meerut, Uttar Pradesh, India
             </h3>
             <div className="flex gap-4">
               {/* <Link href="/terms-of-service" className="text-sm transition-colors duration-200 hover:text-gray-300">
@@ -84,10 +76,10 @@ export const FooterV2: React.FC = () => {
               </Link> */}
             </div>
           </div>
-          <span className="text-[#b8b8b8]">© 2025 Austin Serb</span>
+          <span className="text-[#b8b8b8]">© 2025 Mohd Anas</span>
         </div>
         <h2 className="large-brand-text absolute -bottom-16 left-0 flex w-full items-center justify-center font-medium whitespace-nowrap text-white md:text-[180px] lg:text-[240px]">
-          Austin Serb
+          Mohd Anas
         </h2>
       </div>
     </footer>
