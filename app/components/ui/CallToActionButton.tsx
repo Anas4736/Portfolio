@@ -1,9 +1,7 @@
 import Image from "next/image"
-import profilePhoto from "@/public/assets/founder.jpg"
 import clsx from "clsx"
 import type { Variants } from "motion"
 import { MotionButton, MotionDiv } from "@/app/utils/lazy-ui"
-import { SITE_NAP } from "@/config/siteConfig"
 import { Icon } from "../Icon"
 
 export const CallToActionButton = () => {

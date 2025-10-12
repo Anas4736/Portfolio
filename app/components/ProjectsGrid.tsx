@@ -1,16 +1,11 @@
 "use client"
 import { AnimatedCard, HeroOffset } from "./ProjectCard/AnimatedCard"
-import iaoPreview from "@/app/images/iao-preview-v2.webp"
-import bespokePreview from "@/app/images/bespoke-preview-v2.webp"
-import automedicsPreview from "@/app/images/automedics-preview-v2.webp"
-import reactZeroUIPreview from "@/app/images/react-zero-ui-preview.jpg"
 import clsx from "clsx"
 import { useOffset } from "../hooks/useOffset"
 import { useIsMobile } from "../hooks/useMediaQuery"
 import { useRef, useEffect } from "react"
 import { useScroll, useSpring } from "motion/react"
 import { useUI } from "@react-zero-ui/core"
-import { externalLinks } from "@/config/siteConfig"
 
 const ids = ["automedics", "react-zero-ui", "iron-and-oak", "bespoke"]
 
