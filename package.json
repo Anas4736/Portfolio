@@ -1,11 +1,11 @@
 {
-  "name": "austin-serb-portfolio",
+  "name": "mohd-anas-portfolio",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "zero-icons",
+    "prebuild": "",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",

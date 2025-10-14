@@ -1,27 +1,27 @@
 export const DOMAIN_URL = "https://www.austinserb.com"
 
 export const SITE_CONFIG = {
-  title: "Austin Serb - Web Developer Portfolio | React & Next.js",
-  description: "Portfolio of Austin Serb, Seattle-based full-stack engineer. Specializing in Next.js, React, TypeScript, and Tailwind CSS.",
+  title: "Mohd Anas - Full Stack Developer Portfolio",
+  description: "Portfolio of Mohd Anas, Seattle-based full-stack engineer. Specializing in Next.js, React, TypeScript, and Tailwind CSS.",
   url: DOMAIN_URL ?? "http://localhost:3000",
-  siteName: "Austin Serb",
-  keywords: ["Austin Serb", "Serbyte", "React Zero-UI", "Next.js", "React", "TypeScript", "Full-Stack Engineer", "Seattle"],
+  siteName: "Mohd Anas",
+  keywords: ["Mohd Anas", "Serbyte", "React Zero-UI", "Next.js", "React", "TypeScript", "Full-Stack Engineer", "Seattle"],
   ogImage: "/assets/bg-home-poster-optimized.webp",
   logo: "/serbyte-logo.png",
 } as const
 
 export const SITE_NAP = {
-  name: "Austin Serb",
+  name: "Mohd Anas",
   googleBusinessType: "LocalBusiness" as const,
-  contact: "Austin Serb",
+  contact: "Mohd Anas",
   contactTitle: "CEO",
-  email: "austin@serbyte.net",
+  email: "mohd47369@gmail.com",
   phone: "+12066596727",
   formattedPhone: "+1 (206) 659-6727",
   addressLink: "https://www.google.com/maps/search/?api=1&query=serbyte+development",
   street: "12601 NE 124th ST",
-  city: "Kirkland",
-  state: "WA",
+  city: "Meerut",
+  state: "UP",
   zipCode: "98034",
   openingHours: [{ days: "Mon - Sat", hours: "8am - 6pm" }] as const,
   googleReviewLink: "https://g.page/r/CXHVs1ony_76EAI/review",
@@ -43,7 +43,7 @@ export const SITE_SLUGS = {
   home: "/",
   projects: "/projects",
   contact: "/#contact",
-  about: "/#about-austin-serb",
+  about: "/#about-Mohd Anas",
   projectLinks: {
     iao: "/projects/iron-and-oak",
     automedics: "/projects/automedics",

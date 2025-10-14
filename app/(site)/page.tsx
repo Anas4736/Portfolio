@@ -11,10 +11,10 @@ import Script from "next/script"
 export const metadata: Metadata = {
   title: SITE_CONFIG.title,
   description:
-    "Explore the web developer portfolio of Austin Serb, a full-stack engineer building fast, modern web applications. See what a professional coding portfolio looks like, featuring projects in React, Next.js, and the custom-built React-Zero-UI library.",
+    "Explore the web developer portfolio of Mohd Anas, a full-stack engineer building fast, modern web applications. See what a professional coding portfolio looks like, featuring projects in React, Next.js, and the custom-built React-Zero-UI library.",
 
   keywords: [
-    "Austin Serb",
+    "Mohd Anas",
     "Web Developer Portfolio",
     "Serbyte",
     "React Zero-UI",
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 
     "React Developer Portfolio",
   ],
-  authors: [{ name: "Austin Serb" }],
-  creator: "Austin Serb",
+  authors: [{ name: "Mohd Anas" }],
+  creator: "Mohd Anas",
   alternates: {
     canonical: SITE_SLUGS.home,
   },

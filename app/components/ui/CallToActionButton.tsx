@@ -58,7 +58,7 @@ export const CallToActionButton = () => {
   }
 
   return (
-    <a href="https://github.com/Anas4736" target="_blank" rel="noopener" aria-label="Austin Serb's GitHub">
+    <a href="https://github.com/Anas4736" target="_blank" rel="noopener" aria-label="Mohd Anas's GitHub">
       <MotionButton
         initial="initial"
         animate="animate"
