@@ -10,4 +10,4 @@ export const variantKeyMap = {
   "data-phase": true,
   "data-reveal": true,
   "data-scrolled": true
-};
+}; 
