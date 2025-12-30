@@ -1,7 +1,7 @@
 # dependencies     
 /node_modules   
 
-# testing
+# testing 
 /coverage 
 
 # next.js
